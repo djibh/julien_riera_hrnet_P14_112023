@@ -1,11 +1,10 @@
 import EmployeesTable from './components/employees/EmployeesTable';
+import Navbar from '../src/components/navbar/Navbar'
 
 export default function App() {
   return (
     <main>
-      <nav>
-        <div className='logo'>HRnet</div>
-      </nav>
+      <Navbar />
       <h1>EMPLOYEES</h1>
       <EmployeesTable />
     </main>
