@@ -1,9 +1,36 @@
+import styled from "styled-components";
+
 export default function Navbar() {
   return (
-    <header>
+    <HeaderStyled>
         <nav>
-            <div className='logo'>HRnet</div>
+            <img src="/logo.png" alt="Logo de la société Wealth Health" className="logo"/>
+            <div className='page-title'>HRnet</div>
           </nav>
-    </header>
+    </HeaderStyled>
   )
 }
+
+const HeaderStyled = styled.header`
+    background: white;
+    border-bottom: 1px solid #999;
+    padding-block: 1.5em;
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+
+        .logo {
+            max-width: 70px;
+        }
+        
+        .page-title {
+            font-size: 1.7rem;
+            font-weight: bold;
+            color: #555;
+        }
+    }
+`;

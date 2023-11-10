@@ -5,7 +5,6 @@ export default function App() {
   return (
     <main>
       <Navbar />
-      <h1>EMPLOYEES</h1>
       <EmployeesTable />
     </main>
   );
