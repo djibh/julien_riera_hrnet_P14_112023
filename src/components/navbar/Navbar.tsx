@@ -14,7 +14,7 @@ export default function Navbar() {
 const HeaderStyled = styled.header`
     background: white;
     border-bottom: 1px solid #999;
-    padding-block: 1.5em;
+    padding-block: 1.2em;
 
     nav {
         display: flex;
@@ -26,7 +26,7 @@ const HeaderStyled = styled.header`
         .logo {
             max-width: 70px;
         }
-        
+
         .page-title {
             font-size: 1.7rem;
             font-weight: bold;
