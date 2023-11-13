@@ -36,7 +36,7 @@ const SelectDropdownStyled = styled.div`
   min-width: 100px;
   border-bottom: 2px solid #bbb;
   font-size: 1.2rem;
-  flex: 2;
+  flex: 1.5;
 
   .select-options {
     display: none;
@@ -50,17 +50,25 @@ const SelectDropdownStyled = styled.div`
     right: 0;
     width: 100%;
     background: #bbb;
-    border-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     z-index: 1000;
     > * {
       padding-block: 0.3em;
     }
   }
 
+  button { 
+    display: flex;
+    padding: 0;
+  }
+
   .expand-chevron {
     transition: 160ms;
+    font-size: 2rem;
     &.active {
       transform: rotate(-180deg);
+      color : hsl(71.13402061855669, 49.23857868020305%, 60.627450980392155%);
     }
   }
 `;

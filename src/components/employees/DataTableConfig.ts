@@ -8,7 +8,7 @@ interface Column {
     format?: (value: number) => string;
   }
 
-export const columns: readonly Column[] = [
+export const columns: Column[] = [
     { id: 'firstName', label: 'First Name', minWidth: 120 },
     { id: 'lastName', label: 'Last Name', minWidth: 120 },
     {
