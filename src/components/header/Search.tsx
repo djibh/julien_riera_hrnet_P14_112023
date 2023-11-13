@@ -33,20 +33,25 @@ const SearchStyled = styled.div`
     border-radius: 10px;
     gap: 0.5em;
     flex: 1;
-
-        #search-input {
-            flex: 1;
-            outline: none;
-            border: none;
-            font-size: 1.2rem;
-        }
+    
+    #search-input {
+      flex: 1;
+      outline: none;
+      border: none;
+      font-size: 1.2rem;
+      caret-color: hsl(71.13402061855669, 49.23857868020305%, 60.627450980392155%);
+      &:focus {
+        border-bottom: 1px solid hsl(71.13402061855669, 49.23857868020305%, 60.627450980392155%);
+      }
     }
-
-    .icons {
+  }
+  
+  .icons {
     font-size: 2.3rem;
-        &.add-btn {
-        align-self: center;
-        filter: drop-shadow(0px 1px 2px black)
+    &.add-btn {
+      align-self: center;
+      filter: drop-shadow(0px 1px 2px black);
+      color: hsl(71.13402061855669, 49.23857868020305%, 60.627450980392155%);
         }
     }
 `;

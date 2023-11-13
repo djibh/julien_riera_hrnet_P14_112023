@@ -28,7 +28,7 @@ export default function EmployeesTable() {
   return (
     <TableWrapperStyled className='wrapper'>
       <Header />
-      <Paper sx={{ width: '100%', overflow: 'hidden', backgroundColor:'#444',borderRadius:'10px', padding: '0.5em 1.5em' }}>
+      <Paper sx={{ width: '100%', overflow: 'hidden', backgroundColor:'#444', borderRadius:'10px', padding: '0.5em 1.5em' }}>
           <TableContainer sx={{ maxHeight: 500 }}>
             <Table stickyHeader aria-label="sticky table">
               <TableHead>
