@@ -7,12 +7,10 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-import Header from '../header/Header'
 
 import { columns, rows } from './DataTableConfig'
-
+import Header from '../header/Header'
 import styled from 'styled-components';
-  
 
 export default function EmployeesTable() {
     const [page, setPage] = React.useState(0);
@@ -39,7 +37,7 @@ export default function EmployeesTable() {
                     <TableCell
                       key={column.id}
                       align={column.align}
-                      style={{ minWidth: column.minWidth, backgroundColor: "#444", color: 'white', fontWeight: 'bold' }}
+                      style={{ minWidth: column.minWidth, backgroundColor: "#444", color: 'white', fontSize:'1.1rem', fontWeight: 'bold' }}
                     >
                       {column.label}
                     </TableCell>
@@ -55,7 +53,7 @@ export default function EmployeesTable() {
                         {columns.map((column) => {
                           const value = row[column.id];
                           return (
-                            <TableCell key={column.id} align={column.align} sx={{color: 'white'}}>
+                            <TableCell key={column.id} align={column.align} sx={{color: 'white', fontSize: '1.05rem'}}>
                               {column.format && typeof value === 'number'
                                 ? column.format(value)
                                 : value}
@@ -84,7 +82,7 @@ export default function EmployeesTable() {
 }
 
 const TableWrapperStyled = styled.div`
-    max-width: 1200px;
+    max-width: 1300px;
     margin: auto;
     text-align: center;
 `;
