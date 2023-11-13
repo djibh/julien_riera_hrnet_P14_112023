@@ -37,7 +37,7 @@ export default function EmployeesTable() {
                     <TableCell
                       key={column.id}
                       align={column.align}
-                      style={{ minWidth: column.minWidth, backgroundColor: "#444", color: 'white', fontSize:'1.1rem', fontWeight: 'bold' }}
+                      style={{ minWidth: column.minWidth, backgroundColor: "#444", color: 'rgba(255, 255, 255, 0.95)', fontSize:'1.1rem', fontWeight: 'bold' }}
                     >
                       {column.label}
                     </TableCell>
@@ -53,7 +53,7 @@ export default function EmployeesTable() {
                         {columns.map((column) => {
                           const value = row[column.id];
                           return (
-                            <TableCell key={column.id} align={column.align} sx={{color: 'white', fontSize: '1.05rem'}}>
+                            <TableCell key={column.id} align={column.align} sx={{color: 'rgba(255, 255, 255, 0.95)', fontSize: '1.05rem'}}>
                               {column.format && typeof value === 'number'
                                 ? column.format(value)
                                 : value}
@@ -85,4 +85,5 @@ const TableWrapperStyled = styled.div`
     max-width: 1300px;
     margin: auto;
     text-align: center;
+    padding-inline: 0.5em;
 `;

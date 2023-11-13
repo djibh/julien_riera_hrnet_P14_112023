@@ -13,8 +13,8 @@ export default function Navbar() {
 
 const HeaderStyled = styled.header`
     background: white;
-    border-bottom: 1px solid #999;
-    padding-block: 1.2em;
+    border-bottom: 5px solid hsl(70.625, 48.9795918367347%, 38.431372549019606%);
+    padding: 1.2em 0.5em;
 
     nav {
         display: flex;
@@ -30,7 +30,7 @@ const HeaderStyled = styled.header`
         .page-title {
             font-size: 1.7rem;
             font-weight: bold;
-            color: #555;
+            color: #444;
         }
     }
 `;

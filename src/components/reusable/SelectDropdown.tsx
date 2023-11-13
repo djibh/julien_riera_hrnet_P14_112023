@@ -33,9 +33,10 @@ const SelectDropdownStyled = styled.div`
   justify-content: space-between;
   align-items: center;
   padding-left: 0.2em;
-  min-width: 120px;
+  min-width: 100px;
   border-bottom: 2px solid #bbb;
   font-size: 1.2rem;
+  flex: 2;
 
   .select-options {
     display: none;
@@ -49,7 +50,11 @@ const SelectDropdownStyled = styled.div`
     right: 0;
     width: 100%;
     background: #bbb;
+    border-radius: 5px;
     z-index: 1000;
+    > * {
+      padding-block: 0.3em;
+    }
   }
 
   .expand-chevron {
