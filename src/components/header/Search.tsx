@@ -1,17 +1,28 @@
-import AddCircleIcon from '@mui/icons-material/AddCircle';
+// import AddCircleIcon from '@mui/icons-material/AddCircle';
 import SearchIcon from '@mui/icons-material/Search';
 import SelectDropdown from '../reusable/SelectDropdown'
 import styled from 'styled-components';
+import { colors } from '../../design/index'
+import Modal from '../modal/Modal';
+import ModalButton from '../modal/ModalButton';
+import { useState } from 'react';
 
 export default function Search() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const toggleModal = () => { 
+    setIsModalOpen(!isModalOpen)
+  }
+
   return (
     <SearchStyled>
       <div className='search-input__container'>
-        <SearchIcon className='icons'/>
+        <SearchIcon className='search-icon'/>
         <input type="text" id='search-input'/>
       </div>
-      <SelectDropdown label='Sort' options={['First name','Last name']} />
-      <AddCircleIcon className='icons add-btn'/>
+      <SelectDropdown label='Sort' options={['First name','Last name', 'Departement']} />
+      <ModalButton clickAction={toggleModal}/>
+      { isModalOpen && <Modal closeAction={toggleModal}/> }
     </SearchStyled>
   )
 }
@@ -28,8 +39,6 @@ const SearchStyled = styled.div`
     display: flex;
     padding: 0.5em 1em;
     background-color: #444444cc;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
     border-radius: 10px;
     gap: 0.5em;
     flex: 10;
@@ -41,20 +50,15 @@ const SearchStyled = styled.div`
       border: none;
       background-color: transparent;
       font-size: 1.2rem;
-      caret-color: hsl(71.13402061855669, 49.23857868020305%, 60.627450980392155%);
+      caret-color: ${colors.green400};
       padding-inline: 0.25em;
       &:focus {
-        border-bottom: 1px solid hsl(71.13402061855669, 49.23857868020305%, 60.627450980392155%);
+        border-bottom: 1px solid ${colors.green400};
       }
     }
   }
   
-  .icons {
+  .search-icon {
     font-size: 2.3rem;
-    &.add-btn {
-      align-self: center;
-      filter: drop-shadow(0px 1px 2px black);
-      color: hsl(71.13402061855669, 49.23857868020305%, 60.627450980392155%);
-        }
-    }
+  }
 `;

@@ -1,6 +1,7 @@
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState } from 'react';
 import styled from 'styled-components';
+import { colors } from '../../design';
 
 type SelectProps = {
     label: string,
@@ -68,7 +69,7 @@ const SelectDropdownStyled = styled.div`
     font-size: 2rem;
     &.active {
       transform: rotate(-180deg);
-      color : hsl(71.13402061855669, 49.23857868020305%, 60.627450980392155%);
+      color : ${colors.green400}
     }
   }
 `;
