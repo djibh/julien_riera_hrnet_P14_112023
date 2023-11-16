@@ -135,6 +135,11 @@ const FormStyled = styled.form`
             border: none;
             font-weight: 700;
             color: ${colors.grey400};
+            
+            &:hover {
+            color: ${colors.grey500};
+
+            }
         }
         
         #submit-btn {
@@ -142,7 +147,11 @@ const FormStyled = styled.form`
             background-color: ${colors.blue500};
             border: none;
             font-weight: 700;
-            color: white
+            color: white;
+
+            &:hover {
+                background-color: ${colors.blue600};
+            }
         }
     }
 `;
