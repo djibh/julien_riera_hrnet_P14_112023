@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { colors } from "../../design";
 import DatePicker  from "react-datepicker"
 import { useState } from "react";
+import "react-datepicker/dist/react-datepicker.css";
 
 type FormProps = {
     closeAction: () => void
@@ -18,40 +19,39 @@ const [startDate, setStartDate] = useState(new Date())
             <h2>Create employee</h2>
         </div>
         <div className="modal-body">
-                <div>
+                <div className="flex">
                     <label htmlFor="firstName">First name</label>
                     <input type="text" id="firstName" />
                 </div>
-                <div>
+                <div className="flex">
                     <label htmlFor="lastName">Last name</label>
                     <input type="text" id="lastName" />
                 </div>
-                <div>
+                <div className="flex">
                     <label htmlFor="startDate">Start date</label>
-                    {/* <input type="text" id="startDate" /> */}
-                    <DatePicker selected={startDate} onChange={() => {}} />
+                    <DatePicker selected={startDate} onChange={(date: Date) => {setStartDate(date)}} />
                 </div>
-                <div>
+                <div className="flex">
                     <label htmlFor="department">Department</label>
                     <input type="text" id="department" />
                 </div>
-                <div>
+                <div className="flex">
                     <label htmlFor="birthDate">Date of birth</label>
-                    <input type="text" id="birthDate" />
+                    <DatePicker selected={startDate} onChange={(date: Date) => {setStartDate(date)}} />
                 </div>
-                <div>
+                <div className="flex">
                     <label htmlFor="street">Street</label>
                     <input type="text" id="street" />
                 </div>
-                <div>
+                <div className="flex">
                     <label htmlFor="city">City</label>
                     <input type="text" id="city" />
                 </div>
-                <div>
+                <div className="flex">
                     <label htmlFor="state">State</label>
                     <input type="text" id="state" />
                 </div>
-                <div>
+                <div className="flex">
                     <label htmlFor="zipCode">Zip code</label>
                     <input type="text" id="zipCode" />
                 </div>
@@ -90,7 +90,7 @@ const FormStyled = styled.form`
         text-align: left;
         gap: 0.5em;
 
-       div {
+       .flex {
             display: flex;
        }
 
