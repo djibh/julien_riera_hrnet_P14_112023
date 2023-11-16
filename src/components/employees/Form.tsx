@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { colors } from "../../design";
+import DatePicker  from "react-datepicker"
+import { useState } from "react";
 
 type FormProps = {
     closeAction: () => void
@@ -7,6 +9,8 @@ type FormProps = {
 }
 
 export default function Form({ closeAction, submitAction }: FormProps) {
+const [startDate, setStartDate] = useState(new Date())
+
   return (
     <FormStyled>
         <div className="modal-header">
@@ -24,7 +28,8 @@ export default function Form({ closeAction, submitAction }: FormProps) {
                 </div>
                 <div>
                     <label htmlFor="startDate">Start date</label>
-                    <input type="text" id="startDate" />
+                    {/* <input type="text" id="startDate" /> */}
+                    <DatePicker selected={startDate} onChange={() => {}} />
                 </div>
                 <div>
                     <label htmlFor="department">Department</label>
@@ -71,7 +76,7 @@ const FormStyled = styled.form`
 
     .modal-header {
         h2 {
-            margin-block: 0.5em 1em;
+            margin-block: 0.5em 1.5em;
         }
         img {
             width: 15%;
@@ -83,6 +88,7 @@ const FormStyled = styled.form`
         flex-direction: column;
         justify-content: space-around;
         text-align: left;
+        gap: 0.5em;
 
        div {
             display: flex;
