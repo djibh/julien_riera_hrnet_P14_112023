@@ -72,7 +72,7 @@ const FormStyled = styled.form`
     background: white;
     color: ${colors.grey800};
     border-radius: 10px;
-    box-shadow: 0px 7px 16px 0px #353535;
+    box-shadow: 0px 7px 10px 0px #353535;
 
     .modal-header {
         h2 {
@@ -88,7 +88,7 @@ const FormStyled = styled.form`
         flex-direction: column;
         justify-content: space-around;
         text-align: left;
-        gap: 0.5em;
+        gap: 0.7em;
 
        .flex {
             display: flex;
@@ -96,8 +96,8 @@ const FormStyled = styled.form`
 
         label {
             flex: 1;
-            font-size: 0.9rem;
-            font-weight: 700;
+            font-size: 0.95rem;
+            font-weight: 500;
             color: ${colors.grey800};
         }
 
@@ -109,7 +109,7 @@ const FormStyled = styled.form`
             border-bottom: 1px solid #ddd;
             color: ${colors.grey800};
             margin-bottom: 1.5em;
-            flex: 2.5;
+            flex: 2;
 
             &:focus {
                 border-bottom: 1px solid ${colors.primary};
@@ -122,7 +122,7 @@ const FormStyled = styled.form`
         display: flex;
         justify-content: center;
         gap: 6em;
-        padding-block: 1em;
+        padding-top: 2em;
     
         button {
             color: ${colors.grey800};

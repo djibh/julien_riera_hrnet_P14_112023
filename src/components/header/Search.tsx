@@ -6,13 +6,17 @@ import { colors } from '../../design/index'
 import Modal from '../modal/Modal';
 import ModalButton from '../modal/ModalButton';
 import { useState } from 'react';
+import Form from '../employees/Form';
 
 export default function Search() {
   const [isModalOpen, setIsModalOpen] = useState(false)
-
-  const toggleModal = () => { 
+  
+  const toggleModal = (e) => { 
+    e.preventDefault()
     setIsModalOpen(!isModalOpen)
   }
+  
+  const form = <Form closeAction={toggleModal} submitAction={toggleModal}/>
 
   return (
     <SearchStyled>
@@ -22,7 +26,8 @@ export default function Search() {
       </div>
       <SelectDropdown label='Sort' options={['First name','Last name', 'Departement']} />
       <ModalButton clickAction={toggleModal}/>
-      { isModalOpen && <Modal closeAction={toggleModal}/> }
+      {/* { isModalOpen && <Modal closeAction={toggleModal}/> } */}
+      <Modal Content={form} className={isModalOpen ? "modal-active" : ""} theme='neutral' animated />
     </SearchStyled>
   )
 }
@@ -37,7 +42,7 @@ const SearchStyled = styled.div`
 
     .search-input__container {
     display: flex;
-    padding: 0.5em 1em;
+    padding: 0.6em 1em;
     background-color: #444444cc;
     border-radius: 10px;
     gap: 0.5em;
@@ -59,6 +64,11 @@ const SearchStyled = styled.div`
   }
   
   .search-icon {
-    font-size: 2.3rem;
+    font-size: 2.2rem;
+  }
+
+  .modal-active {
+    pointer-events: all;
+    opacity: 1;
   }
 `;

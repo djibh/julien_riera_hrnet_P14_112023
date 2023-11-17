@@ -19,7 +19,7 @@ const ButtonStyled = styled.button`
   padding: 0;
   display: flex;
   align-self: center;
-  color: ${colors.green400};
+  color: ${colors.green300};
   filter: drop-shadow(0px 1px 2px ${colors.grey900});
   
   :first-child {
@@ -27,6 +27,6 @@ const ButtonStyled = styled.button`
   }
     
   :active, :hover {
-      color: ${colors.green300};
+      color: ${colors.green400};
   }
 `;
