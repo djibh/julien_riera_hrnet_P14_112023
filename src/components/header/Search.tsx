@@ -47,7 +47,7 @@ const SearchStyled = styled.div`
     border-radius: 10px;
     gap: 0.5em;
     flex: 10;
-    box-shadow: inset 0px 0px 4px 0px hsl(0, 4.545454545454546%, 8.627450980392156%);
+    box-shadow: inset 0px 0px 4px 0px hsl(0, 5%, 9%);
     
     #search-input {
       flex: 1;

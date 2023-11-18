@@ -15,7 +15,7 @@ const [startDate, setStartDate] = useState(new Date())
   return (
     <FormStyled>
         <div className="modal-header">
-            <img src="/logo.png" alt="Logo de la société Wealth Health" className="logo"/>
+            <img src="/logo-form.png" alt="Logo de la société Wealth Health" className="logo"/>
             <h2>Create employee</h2>
         </div>
         <div className="modal-body">
@@ -66,17 +66,20 @@ const [startDate, setStartDate] = useState(new Date())
 }
 
 const FormStyled = styled.form`
-    padding: 3em;
+    padding: 2em 3em;
     min-width: 500px;
-    max-width: 650px;
-    background: white;
+    /* max-width: 650px; */
+    max-height: 95svh;
+    background-color: ${colors.grey050};
     color: ${colors.grey800};
     border-radius: 10px;
     box-shadow: 0px 7px 10px 0px #353535;
+    overflow: scroll;
 
     .modal-header {
         h2 {
-            margin-block: 0.5em 1.5em;
+            margin-block: 0.5em 2em;
+            
         }
         img {
             width: 15%;
@@ -86,33 +89,36 @@ const FormStyled = styled.form`
     .modal-body {
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
+        justify-content: space-between;
         text-align: left;
-        gap: 0.7em;
+        gap: 0.8em;
+
 
        .flex {
             display: flex;
+            align-items: baseline;
        }
 
         label {
             flex: 1;
             font-size: 0.95rem;
-            font-weight: 500;
-            color: ${colors.grey800};
+            font-weight: 600;
+            color: ${colors.grey600};
+            font-family: 'IBM Plex Mono', sans-serif;
         }
 
         input {
             background-color: transparent;
             padding-inline: 0.5em;
-            padding-bottom: 0.3em;
+            padding-bottom: 0.5em;
             border: none;
-            border-bottom: 1px solid #ddd;
-            color: ${colors.grey800};
-            margin-bottom: 1.5em;
-            flex: 2;
+            border-bottom: 2px solid #ddd;
+            font-size: 1rem;
+            color: ${colors.grey700};
+            width: 60%;
 
             &:focus {
-                border-bottom: 1px solid ${colors.primary};
+                border-bottom: 2px solid ${colors.primary};
                 outline: none;
             }
         }
@@ -122,23 +128,22 @@ const FormStyled = styled.form`
         display: flex;
         justify-content: center;
         gap: 6em;
-        padding-top: 2em;
+        padding-top: 3em;
     
         button {
             color: ${colors.grey800};
             border: 1px solid ${colors.blue700};
-            border-radius: 5px;
+            border-radius: 25px;
             font-size: 1rem;
         }
 
         #cancel-btn {
             border: none;
             font-weight: 700;
-            color: ${colors.grey400};
+            color: ${colors.grey500};
             
             &:hover {
-            color: ${colors.grey500};
-
+                color: ${colors.grey700};
             }
         }
         

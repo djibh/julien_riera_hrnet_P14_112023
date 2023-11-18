@@ -86,4 +86,8 @@ const TableWrapperStyled = styled.div`
     margin: auto;
     text-align: center;
     padding-inline: 0.5em;
+
+    th, td {
+      font-family: 'IBM Plex Sans', sans-serif;
+    }
 `;

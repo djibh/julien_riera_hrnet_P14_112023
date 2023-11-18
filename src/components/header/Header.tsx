@@ -11,10 +11,8 @@ export default function Header() {
 }
 
 const HeaderStyled = styled.header`
-  margin-top: 3em;
-
   h1 {
       font-size: 2rem;
-      /* margin: 1em; */
+      margin: 1em;
     }
 `;
