@@ -20,7 +20,7 @@ const HeaderStyled = styled.header`
         display: flex;
         justify-content: space-between;
         align-items: center;
-        max-width: 1300px;
+        max-width: 1400px;
         margin: 0 auto;
 
         .logo {

@@ -1,6 +1,5 @@
 // import AddCircleIcon from '@mui/icons-material/AddCircle';
 import SearchIcon from '@mui/icons-material/Search';
-import SelectDropdown from '../reusable/SelectDropdown'
 import styled from 'styled-components';
 import { colors } from '../../design/index'
 import Modal from '../modal/Modal';
@@ -24,8 +23,7 @@ export default function Search() {
         <SearchIcon className='search-icon'/>
         <input type="text" id='search-input'/>
       </div>
-      <SelectDropdown label='Sort' options={['First name','Last name', 'Departement']} />
-      <ModalButton clickAction={toggleModal}/>
+       <ModalButton clickAction={toggleModal}/>
       {/* { isModalOpen && <Modal closeAction={toggleModal}/> } */}
       <Modal Content={form} className={isModalOpen ? "modal-active" : ""} theme='neutral' animated />
     </SearchStyled>
@@ -46,7 +44,7 @@ const SearchStyled = styled.div`
     background-color: #444444cc;
     border-radius: 10px;
     gap: 0.5em;
-    flex: 10;
+    flex: 0.4;
     box-shadow: inset 0px 0px 4px 0px hsl(0, 5%, 9%);
     
     #search-input {

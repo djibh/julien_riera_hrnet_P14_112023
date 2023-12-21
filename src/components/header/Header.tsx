@@ -13,6 +13,6 @@ export default function Header() {
 const HeaderStyled = styled.header`
   h1 {
       font-size: 2rem;
-      margin: 1em;
+      margin: 1.5em;
     }
 `;

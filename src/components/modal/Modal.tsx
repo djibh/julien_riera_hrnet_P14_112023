@@ -5,7 +5,7 @@ type ModalProps = {
     Content: JSX.Element,
     blur?: boolean,
     animated?: boolean,
-    theme?: 'dark' | 'light' | 'neutral'
+    theme?: 'neutral' | 'light' | 'dark'
 }
 
 export default function Modal({ className, Content, animated, blur, theme }: ModalProps ) {

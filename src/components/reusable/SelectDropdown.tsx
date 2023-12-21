@@ -35,7 +35,7 @@ const SelectDropdownStyled = styled.div`
   align-items: center;
   padding-left: 0.2em;
   min-width: 100px;
-  border-bottom: 2px solid #bbb;
+  border-bottom: 2px solid #777;
   font-size: 1.2rem;
   flex: 1.5;
 
@@ -50,12 +50,15 @@ const SelectDropdownStyled = styled.div`
     top: 100%;
     right: 0;
     width: 100%;
-    background: #bbb;
+    background: #444444;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    z-index: 1000;
+    z-index: 500;
+    padding: 0.6em 0.8em;
     > * {
-      padding-block: 0.3em;
+      text-align: left;
+      font-size: 1.15rem;
+      line-height: 2;
     }
   }
 

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import TextField from '@mui/material/TextField';
 import React from "react";
 
-export default function Form() {
+export default function NewEmployeeForm() {
   return (
     <>
         <FormStyled>
