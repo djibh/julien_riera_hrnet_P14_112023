@@ -3,6 +3,8 @@ import { columns, rows } from './DataTableConfig'
 import Header from '../header/Header'
 import styled from 'styled-components';
 import { colors } from '../../design';
+import { useContext } from 'react';
+import EmployeeContext from '../../context/EmployeeContext';
 
 function QuickSearchToolbar() {
   return (
@@ -13,14 +15,16 @@ function QuickSearchToolbar() {
 }
 
 export default function EmployeesTable() {
+  const { employees } = useContext(EmployeeContext)
+
     return (
       <TableWrapperStyled className='wrapper'>
         <Header />
         <DataGrid
           className='datatable'
           slots={{toolbar: QuickSearchToolbar}}
-          key={Math.random()*100}
-          rows={rows}
+          key={Math.random()*100*4}
+          rows={employees}
           columns={columns}
           initialState={{
             pagination: {
