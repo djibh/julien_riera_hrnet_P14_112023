@@ -265,7 +265,7 @@ const handleCancel= (e: React.MouseEvent<HTMLButtonElement>) => {
     setIsModalOpen(!isModalOpen)
 }
 
-const handleSubmit = (e: SubmitEvent) => { 
+const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => { 
     e.preventDefault()
     const requiredFields = ['firstName', 'lastName', 'street', 'city', 'zipCode'];
 
@@ -275,7 +275,6 @@ const handleSubmit = (e: SubmitEvent) => {
     }
 
     const formElement = e.target;
-
     if (requiredFields.some(field => !formElement[field]?.value)) {
     console.error("Veuillez remplir tous les champs obligatoires.");
     return;
@@ -328,6 +327,7 @@ const handleSubmit = (e: SubmitEvent) => {
                         className="select"
                         name="department"
                         defaultValue={selectedDepartment}
+                        // @ts-expect-error due to react-select lib
                         onChange={setSelectedDepartment}
                         options={departments}
                         inputId="department"
@@ -351,8 +351,8 @@ const handleSubmit = (e: SubmitEvent) => {
                         className="select"
                         name="state"
                         defaultValue={selectedState}
+                        // @ts-expect-error due to react-select lib
                         onChange={setSelectedState}
-                        // value={selectedState}
                         options={states}
                         inputId="state"
                     />
