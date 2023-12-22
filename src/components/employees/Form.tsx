@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import { colors } from "../../design";
 import DatePicker  from "react-datepicker"
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import Select from "react-select";
+import EmployeeContext from "../../context/EmployeeContext";
 
 type FormProps = {
     closeAction: () => void
@@ -262,9 +263,24 @@ const [startDate, setStartDate] = useState(new Date())
 const [birthDate, setBirthDate] = useState(new Date())
 const [selectedDepartment, setSelectedDepartment] = useState({ value: '', label: 'Select' });
 const [selectedState, setSelectedState] = useState({ value: '', label: 'Select' });
+const { employees, setEmployees } = useContext(EmployeeContext) 
 
 const handleSubmit = (e) => { 
     e.preventDefault()
+    const newEmployee = {
+        id: Math.round(Math.random()*100),
+        firstName: e.target.firstName.value,
+        lastName:  e.target.lastName.value,
+        startDate: startDate.toLocaleDateString("fr"),
+        department: selectedDepartment.value,
+        birthDate: birthDate.toLocaleDateString("fr"),
+        street: e.target.street.value,
+        city: e.target.city.value,
+        state: selectedState.value,
+        zipCode:  e.target.zipCode.value
+    }
+    const newList = [...employees, newEmployee]
+    setEmployees(newList)
  }
 
   return (
@@ -276,15 +292,15 @@ const handleSubmit = (e) => {
         <div className="modal-body">
                 <div className="flex">
                     <label htmlFor="firstName">First name</label>
-                    <input type="text" id="firstName" />
+                    <input type="text" name="firstName" id="firstName" />
                 </div>
                 <div className="flex">
                     <label htmlFor="lastName">Last name</label>
-                    <input type="text" id="lastName" />
+                    <input type="text" name="lastName" id="lastName" />
                 </div>
                 <div className="flex">
                     <label htmlFor="startDate">Start date</label>
-                    <DatePicker className="datepicker" selected={startDate} onChange={(date: Date) => {setStartDate(date)}} />
+                    <DatePicker className="datepicker" selected={startDate} id="startDate" onChange={(date: Date) => {setStartDate(date)}} />
                 </div>
                 <div className="flex">
                     <label htmlFor="department">Department</label>
@@ -300,15 +316,15 @@ const handleSubmit = (e) => {
                 </div>
                 <div className="flex">
                     <label htmlFor="birthDate">Date of birth</label>
-                    <DatePicker className="datepicker" selected={birthDate} onChange={(date: Date) => {setBirthDate(date)}} />
+                    <DatePicker className="datepicker" id="birthDate" selected={birthDate} onChange={(date: Date) => {setBirthDate(date)}} />
                 </div>
                 <div className="flex">
                     <label htmlFor="street">Street</label>
-                    <input type="text" id="street" />
+                    <input type="text" name="street" id="street" />
                 </div>
                 <div className="flex">
                     <label htmlFor="city">City</label>
-                    <input type="text" id="city" />
+                    <input type="text" name="city" id="city" />
                 </div>
                 <div className="flex">
                     <label htmlFor="state">State</label>
@@ -324,7 +340,7 @@ const handleSubmit = (e) => {
                 </div>
                 <div className="flex">
                     <label htmlFor="zipCode">Zip code</label>
-                    <input type="text" id="zipCode" />
+                    <input type="text" name="zipCode" id="zipCode" />
                 </div>
         </div>
         <div className="modal-footer">

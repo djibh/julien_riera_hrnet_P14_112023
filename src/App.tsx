@@ -3,22 +3,10 @@ import Navbar from '../src/components/navbar/Navbar'
 import { useState } from 'react';
 import EmployeeContext from './context/EmployeeContext';
 
-const initNewEmployee = {id: 0,
-  firstName: '',
-  lastName: '',
-  startDate: '', 
-  department: '',
-  birthDate: '', 
-  street: '',
-  city: '',
-  state: '',
-  zipCode: 0
-}
-
-  const initEmployees = [{
+const initEmployees = [{
     id: Math.round(Math.random()*100),
     firstName: 'Bobby',
-    lastName: 'Context Finger',
+    lastName: 'Initstate Finger',
     startDate: '12/12/2023', 
     department: 'Sales',
     birthDate: '02/04/1978', 
@@ -30,7 +18,7 @@ const initNewEmployee = {id: 0,
 {
     id: Math.round(Math.random()*100), 
     firstName: 'Tony',
-    lastName: 'Context Stark',
+    lastName: 'Initstate Stark',
     startDate: '28/02/2010', 
     department: 'Engineering',
     birthDate: '02/11/1983', 
@@ -41,15 +29,13 @@ const initNewEmployee = {id: 0,
 }]
 
 export default function App() {
-  const [newEmployee, setNewEmployee] = useState(initNewEmployee)
   const [employees, setEmployees] = useState(initEmployees)
 
   const ContextValue = {
-    newEmployee,
-    setNewEmployee,
     employees,
     setEmployees
   }
+
   return (
     <EmployeeContext.Provider value={ContextValue}>
       <main>

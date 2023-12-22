@@ -1,5 +1,5 @@
 import { DataGrid, GridToolbarQuickFilter } from '@mui/x-data-grid';
-import { columns, rows } from './DataTableConfig'
+import { columns } from './DataTableConfig'
 import Header from '../header/Header'
 import styled from 'styled-components';
 import { colors } from '../../design';
