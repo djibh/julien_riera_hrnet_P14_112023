@@ -6,11 +6,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import Select from "react-select";
 import EmployeeContext from "../../context/EmployeeContext";
 
-type FormProps = {
-    closeAction: () => void
-    submitAction: () => void
-}
-
 const departments = [
     { value: 'Sales', label: 'Sales' },
     { value: 'Marketing', label: 'Marketing' },
@@ -258,36 +253,54 @@ const departments = [
     }
 ];
 
-export default function Form({ closeAction }: FormProps) {
+export default function Form() {
 const [startDate, setStartDate] = useState(new Date())
 const [birthDate, setBirthDate] = useState(new Date())
 const [selectedDepartment, setSelectedDepartment] = useState({ value: '', label: 'Select' });
 const [selectedState, setSelectedState] = useState({ value: '', label: 'Select' });
 const { employees, setEmployees, isModalOpen, setIsModalOpen } = useContext(EmployeeContext) 
 
-const handleCancel= (e) => {
+const handleCancel= (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
     setIsModalOpen(!isModalOpen)
 }
 
-const handleSubmit = (e) => { 
+const handleSubmit = (e: SubmitEvent) => { 
     e.preventDefault()
+    const requiredFields = ['firstName', 'lastName', 'street', 'city', 'zipCode'];
+
+    if (!e.target || !(e.target instanceof HTMLFormElement)) {
+    console.error("L'élément cible n'est pas un formulaire.");
+    return;
+    }
+
+    const formElement = e.target;
+
+    if (requiredFields.some(field => !formElement[field]?.value)) {
+    console.error("Veuillez remplir tous les champs obligatoires.");
+    return;
+}
+
+    addEmployee(formElement)
+    setIsModalOpen(!isModalOpen)
+ }
+
+ const addEmployee = (formElement: HTMLFormElement) => { 
     const newEmployee = {
         id: Math.round(Math.random()*100),
-        firstName: e.target.firstName.value,
-        lastName:  e.target.lastName.value,
+        firstName: formElement.firstName.value,
+        lastName:  formElement.lastName.value,
         startDate: startDate.toLocaleDateString("fr"),
         department: selectedDepartment.value,
         birthDate: birthDate.toLocaleDateString("fr"),
-        street: e.target.street.value,
-        city: e.target.city.value,
+        street: formElement.street.value,
+        city: formElement.city.value,
         state: selectedState.value,
-        zipCode:  e.target.zipCode.value
+        zipCode:  formElement.zipCode.value
     }
     const newList = [...employees, newEmployee]
     setEmployees(newList)
-    setIsModalOpen(!isModalOpen)
- }
+  }
 
   return (
     <FormStyled onSubmit={handleSubmit}>

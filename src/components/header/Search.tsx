@@ -1,4 +1,3 @@
-// import AddCircleIcon from '@mui/icons-material/AddCircle';
 import SearchIcon from '@mui/icons-material/Search';
 import styled from 'styled-components';
 import { colors } from '../../design/index'
@@ -10,13 +9,7 @@ import EmployeeContext from '../../context/EmployeeContext';
 
 export default function Search() {
   const { isModalOpen, setIsModalOpen } = useContext(EmployeeContext)
-  
-  const toggleModal = (e) => { 
-    e.preventDefault()
-    setIsModalOpen(!isModalOpen)
-  }
-  
-  const form = <Form closeAction={toggleModal} submitAction={toggleModal}/>
+  const form = <Form />
 
   return (
     <SearchStyled>
@@ -24,9 +17,8 @@ export default function Search() {
         <SearchIcon className='search-icon'/>
         <input type="text" id='search-input'/>
       </div>
-       <ModalButton clickAction={toggleModal}/>
-      {/* { isModalOpen && <Modal closeAction={toggleModal}/> } */}
-      <Modal Content={form} className={isModalOpen ? "modal-active" : ""} theme='neutral' animated />
+        <ModalButton clickAction={() => setIsModalOpen(!isModalOpen)}/>
+        <Modal Content={form} className={isModalOpen ? "modal-active" : ""} theme='neutral' animated />
     </SearchStyled>
   )
 }
