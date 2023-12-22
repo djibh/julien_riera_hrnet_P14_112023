@@ -30,10 +30,13 @@ const initEmployees = [{
 
 export default function App() {
   const [employees, setEmployees] = useState(initEmployees)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const ContextValue = {
     employees,
-    setEmployees
+    setEmployees,
+    isModalOpen,
+    setIsModalOpen
   }
 
   return (

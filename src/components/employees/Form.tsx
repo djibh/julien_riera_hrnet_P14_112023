@@ -263,7 +263,12 @@ const [startDate, setStartDate] = useState(new Date())
 const [birthDate, setBirthDate] = useState(new Date())
 const [selectedDepartment, setSelectedDepartment] = useState({ value: '', label: 'Select' });
 const [selectedState, setSelectedState] = useState({ value: '', label: 'Select' });
-const { employees, setEmployees } = useContext(EmployeeContext) 
+const { employees, setEmployees, isModalOpen, setIsModalOpen } = useContext(EmployeeContext) 
+
+const handleCancel= (e) => {
+    e.preventDefault()
+    setIsModalOpen(!isModalOpen)
+}
 
 const handleSubmit = (e) => { 
     e.preventDefault()
@@ -281,15 +286,16 @@ const handleSubmit = (e) => {
     }
     const newList = [...employees, newEmployee]
     setEmployees(newList)
+    setIsModalOpen(!isModalOpen)
  }
 
   return (
     <FormStyled onSubmit={handleSubmit}>
-        <div className="modal-header">
+        <div className="form-header">
             <img src="/logo-form.png" alt="Logo de la société Wealth Health" className="logo"/>
             <h2>Create employee</h2>
         </div>
-        <div className="modal-body">
+        <div className="form-body">
                 <div className="flex">
                     <label htmlFor="firstName">First name</label>
                     <input type="text" name="firstName" id="firstName" />
@@ -343,8 +349,8 @@ const handleSubmit = (e) => {
                     <input type="text" name="zipCode" id="zipCode" />
                 </div>
         </div>
-        <div className="modal-footer">
-            <button id="cancel-btn" onClick={closeAction}>Cancel</button>
+        <div className="form-footer">
+            <button id="cancel-btn" role="button" onClick={handleCancel}>Cancel</button>
             <button id="submit-btn" role="submit">Create</button>
         </div>
     </FormStyled>
@@ -365,7 +371,7 @@ const FormStyled = styled.form`
     box-shadow: 0px 6px 10px -3px ${colors.grey500};
     overflow-y: scroll;
 
-    .modal-header {
+    .form-header {
         h2 {
             margin: 0;
             
@@ -375,7 +381,7 @@ const FormStyled = styled.form`
         }
     }
 
-    .modal-body {
+    .form-body {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -417,7 +423,7 @@ const FormStyled = styled.form`
        }
     }
     
-    .modal-footer {
+    .form-footer {
         display: flex;
         justify-content: center;
         gap: 6em;

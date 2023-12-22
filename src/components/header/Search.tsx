@@ -4,11 +4,12 @@ import styled from 'styled-components';
 import { colors } from '../../design/index'
 import Modal from '../modal/Modal';
 import ModalButton from '../modal/ModalButton';
-import { useState } from 'react';
+import { useContext } from 'react';
 import Form from '../employees/Form';
+import EmployeeContext from '../../context/EmployeeContext';
 
 export default function Search() {
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const { isModalOpen, setIsModalOpen } = useContext(EmployeeContext)
   
   const toggleModal = (e) => { 
     e.preventDefault()
