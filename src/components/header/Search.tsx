@@ -1,7 +1,7 @@
-import SearchIcon from '@mui/icons-material/Search';
 import styled from 'styled-components';
 import { colors } from '../../design/index'
-import Modal from '../modal/Modal';
+import Modal from 'simpl-modal';
+
 import ModalButton from '../modal/ModalButton';
 import { useContext } from 'react';
 import Form from '../employees/Form';
@@ -9,23 +9,20 @@ import EmployeeContext from '../../context/EmployeeContext';
 
 export default function Search() {
   const { isModalOpen, setIsModalOpen } = useContext(EmployeeContext)
-  const form = <Form />
-
+  
   return (
     <SearchStyled>
-      <div className='search-input__container'>
-        <SearchIcon className='search-icon'/>
-        <input type="text" id='search-input'/>
-      </div>
-        <ModalButton clickAction={() => setIsModalOpen(!isModalOpen)}/>
-        <Modal Content={form} className={isModalOpen ? "modal-active" : ""} theme='neutral' animated />
+        <ModalButton clickAction={() => setIsModalOpen(true)}/>
+        <Modal isOpen={isModalOpen} setIsOpen={setIsModalOpen} theme='neutral' animated>
+          <Form />  
+        </Modal>
     </SearchStyled>
   )
 }
 
 const SearchStyled = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: stretch;
     gap: 1.5em;
     width: 100%;
@@ -56,10 +53,5 @@ const SearchStyled = styled.div`
   
   .search-icon {
     font-size: 2.2rem;
-  }
-
-  .modal-active {
-    pointer-events: all;
-    opacity: 1;
   }
 `;

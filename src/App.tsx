@@ -22,10 +22,22 @@ const initEmployees = [{
     startDate: '28/02/2010', 
     department: 'Engineering',
     birthDate: '02/11/1983', 
-    street: '2',
+    street: '21',
     city: 'New York',
     state: 'WA',
     zipCode: 35000
+},
+{
+  id: Math.round(Math.random()*100), 
+  firstName: 'Sophia',
+  lastName: 'Initstate Connors',
+  startDate: '28/02/2010', 
+  department: 'Engineering',
+  birthDate: '02/11/1983', 
+  street: '7',
+  city: 'New York',
+  state: 'WA',
+  zipCode: 35000
 }]
 
 export default function App() {

@@ -1,268 +1,26 @@
+import { useContext, useState, useRef } from "react";
 import styled from "styled-components";
-import { colors } from "../../design";
-import DatePicker  from "react-datepicker"
-import { useContext, useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import Select from "react-select";
+import DatePicker  from "react-datepicker"
 import EmployeeContext from "../../context/EmployeeContext";
-
-const departments = [
-    { value: 'Sales', label: 'Sales' },
-    { value: 'Marketing', label: 'Marketing' },
-    { value: 'Engineering', label: 'Engineering' },
-    { value: 'Human resources', label: 'Human Resources' },
-    { value: 'Legal', label: 'Legal' },
-  ];
-
-  const states = [
-    {
-        label: "Alabama",
-        value: "AL"
-    },
-    {
-        label: "Alaska",
-        value: "AK"
-    },
-    {
-        label: "American Samoa",
-        value: "AS"
-    },
-    {
-        label: "Arizona",
-        value: "AZ"
-    },
-    {
-        label: "Arkansas",
-        value: "AR"
-    },
-    {
-        label: "California",
-        value: "CA"
-    },
-    {
-        label: "Colorado",
-        value: "CO"
-    },
-    {
-        label: "Connecticut",
-        value: "CT"
-    },
-    {
-        label: "Delaware",
-        value: "DE"
-    },
-    {
-        label: "District Of Columbia",
-        value: "DC"
-    },
-    {
-        label: "Federated States Of Micronesia",
-        value: "FM"
-    },
-    {
-        label: "Florida",
-        value: "FL"
-    },
-    {
-        label: "Georgia",
-        value: "GA"
-    },
-    {
-        label: "Guam",
-        value: "GU"
-    },
-    {
-        label: "Hawaii",
-        value: "HI"
-    },
-    {
-        label: "Idaho",
-        value: "ID"
-    },
-    {
-        label: "Illinois",
-        value: "IL"
-    },
-    {
-        label: "Indiana",
-        value: "IN"
-    },
-    {
-        label: "Iowa",
-        value: "IA"
-    },
-    {
-        label: "Kansas",
-        value: "KS"
-    },
-    {
-        label: "Kentucky",
-        value: "KY"
-    },
-    {
-        label: "Louisiana",
-        value: "LA"
-    },
-    {
-        label: "Maine",
-        value: "ME"
-    },
-    {
-        label: "Marshall Islands",
-        value: "MH"
-    },
-    {
-        label: "Maryland",
-        value: "MD"
-    },
-    {
-        label: "Massachusetts",
-        value: "MA"
-    },
-    {
-        label: "Michigan",
-        value: "MI"
-    },
-    {
-        label: "Minnesota",
-        value: "MN"
-    },
-    {
-        label: "Mississippi",
-        value: "MS"
-    },
-    {
-        label: "Missouri",
-        value: "MO"
-    },
-    {
-        label: "Montana",
-        value: "MT"
-    },
-    {
-        label: "Nebraska",
-        value: "NE"
-    },
-    {
-        label: "Nevada",
-        value: "NV"
-    },
-    {
-        label: "New Hampshire",
-        value: "NH"
-    },
-    {
-        label: "New Jersey",
-        value: "NJ"
-    },
-    {
-        label: "New Mexico",
-        value: "NM"
-    },
-    {
-        label: "New York",
-        value: "NY"
-    },
-    {
-        label: "North Carolina",
-        value: "NC"
-    },
-    {
-        label: "North Dakota",
-        value: "ND"
-    },
-    {
-        label: "Northern Mariana Islands",
-        value: "MP"
-    },
-    {
-        label: "Ohio",
-        value: "OH"
-    },
-    {
-        label: "Oklahoma",
-        value: "OK"
-    },
-    {
-        label: "Oregon",
-        value: "OR"
-    },
-    {
-        label: "Palau",
-        value: "PW"
-    },
-    {
-        label: "Pennsylvania",
-        value: "PA"
-    },
-    {
-        label: "Puerto Rico",
-        value: "PR"
-    },
-    {
-        label: "Rhode Island",
-        value: "RI"
-    },
-    {
-        label: "South Carolina",
-        value: "SC"
-    },
-    {
-        label: "South Dakota",
-        value: "SD"
-    },
-    {
-        label: "Tennessee",
-        value: "TN"
-    },
-    {
-        label: "Texas",
-        value: "TX"
-    },
-    {
-        label: "Utah",
-        value: "UT"
-    },
-    {
-        label: "Vermont",
-        value: "VT"
-    },
-    {
-        label: "Virgin Islands",
-        value: "VI"
-    },
-    {
-        label: "Virginia",
-        value: "VA"
-    },
-    {
-        label: "Washington",
-        value: "WA"
-    },
-    {
-        label: "West Virginia",
-        value: "WV"
-    },
-    {
-        label: "Wisconsin",
-        value: "WI"
-    },
-    {
-        label: "Wyoming",
-        value: "WY"
-    }
-];
+import { colors } from "../../design";
+import { departments, states } from './FormConfig'
 
 export default function Form() {
-const [startDate, setStartDate] = useState(new Date())
-const [birthDate, setBirthDate] = useState(new Date())
+const date = new Date() 
+const [startDate, setStartDate] = useState(date)
+const [birthDate, setBirthDate] = useState(date)
 const [selectedDepartment, setSelectedDepartment] = useState({ value: '', label: 'Select' });
 const [selectedState, setSelectedState] = useState({ value: '', label: 'Select' });
-const { employees, setEmployees, isModalOpen, setIsModalOpen } = useContext(EmployeeContext) 
+const { employees, setEmployees, setIsModalOpen } = useContext(EmployeeContext) 
+
+const formRef = useRef<HTMLFormElement>(null);
 
 const handleCancel= (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
-    setIsModalOpen(!isModalOpen)
+    setIsModalOpen(false)
+
 }
 
 const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => { 
@@ -276,12 +34,19 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 
     const formElement = e.target;
     if (requiredFields.some(field => !formElement[field]?.value)) {
-    console.error("Veuillez remplir tous les champs obligatoires.");
-    return;
-}
-
+        console.error("Veuillez remplir tous les champs obligatoires.");
+        return;
+    }
+    
     addEmployee(formElement)
-    setIsModalOpen(!isModalOpen)
+    if (formRef.current) {
+        formRef.current.reset()
+        setBirthDate(date)
+        setStartDate(date)
+        setSelectedDepartment({ value: '', label: 'Select' })
+        setSelectedState({ value: '', label: 'Select' })
+    }
+    setIsModalOpen(false)
  }
 
  const addEmployee = (formElement: HTMLFormElement) => { 
@@ -302,7 +67,7 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
   }
 
   return (
-    <FormStyled onSubmit={handleSubmit}>
+    <FormStyled ref={formRef} onSubmit={handleSubmit}>
         <div className="form-header">
             <img src="/logo-form.png" alt="Logo de la société Wealth Health" className="logo"/>
             <h2>Create employee</h2>
@@ -318,7 +83,7 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
                 </div>
                 <div className="flex">
                     <label htmlFor="startDate">Start date</label>
-                    <DatePicker className="datepicker" selected={startDate} id="startDate" onChange={(date: Date) => {setStartDate(date)}} />
+                    <DatePicker className="datepicker" selected={startDate} id="startDate" dateFormat="dd/MM/yyyy" onChange={(date: Date) => {setStartDate(date)}} />
                 </div>
                 <div className="flex">
                     <label htmlFor="department">Department</label>
@@ -335,7 +100,7 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
                 </div>
                 <div className="flex">
                     <label htmlFor="birthDate">Date of birth</label>
-                    <DatePicker className="datepicker" id="birthDate" selected={birthDate} onChange={(date: Date) => {setBirthDate(date)}} />
+                    <DatePicker className="datepicker" id="birthDate" dateFormat="dd/MM/yyyy" selected={birthDate} onChange={(date: Date) => {setBirthDate(date)}} />
                 </div>
                 <div className="flex">
                     <label htmlFor="street">Street</label>
@@ -363,8 +128,8 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
                 </div>
         </div>
         <div className="form-footer">
-            <button id="cancel-btn" role="button" onClick={handleCancel}>Cancel</button>
-            <button id="submit-btn" role="submit">Create</button>
+            <button id="cancel-btn" type="button" role="button" onClick={handleCancel}>Cancel</button>
+            <button id="submit-btn" type="submit" role="submit">Create</button>
         </div>
     </FormStyled>
 )
