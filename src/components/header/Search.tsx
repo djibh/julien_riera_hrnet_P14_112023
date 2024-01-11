@@ -4,7 +4,7 @@ import Modal from 'simpl-modal';
 
 import ModalButton from '../modal/ModalButton';
 import { useContext } from 'react';
-import Form from '../employees/Form';
+import Form from '../employees/form/Form';
 import EmployeeContext from '../../context/EmployeeContext';
 
 export default function Search() {
