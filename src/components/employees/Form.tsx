@@ -1,5 +1,7 @@
 import { useContext, useState, useRef } from "react";
 import styled from "styled-components";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "react-datepicker/dist/react-datepicker.css";
 import Select from "react-select";
 import DatePicker  from "react-datepicker"
@@ -26,7 +28,7 @@ const handleCancel= (e: React.MouseEvent<HTMLButtonElement>) => {
 const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => { 
     e.preventDefault()
     const requiredFields = ['firstName', 'lastName', 'street', 'city', 'zipCode'];
-
+    
     if (!e.target || !(e.target instanceof HTMLFormElement)) {
     console.error("L'élément cible n'est pas un formulaire.");
     return;
@@ -47,7 +49,20 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         setSelectedState({ value: '', label: 'Select' })
     }
     setIsModalOpen(false)
+
+    notify()
  }
+
+ const notify = () => toast(`Nouvel employé enregistré.`, {
+    position: "bottom-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+    });
 
  const addEmployee = (formElement: HTMLFormElement) => { 
     const newEmployee = {

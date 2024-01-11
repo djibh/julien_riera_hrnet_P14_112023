@@ -2,6 +2,7 @@ import EmployeesTable from './components/employees/EmployeesTable';
 import Navbar from '../src/components/navbar/Navbar'
 import { useState } from 'react';
 import EmployeeContext from './context/EmployeeContext';
+import { ToastContainer } from 'react-toastify';
 
 const initEmployees = [{
     id: Math.round(Math.random()*100),
@@ -57,6 +58,16 @@ export default function App() {
         <Navbar />
         <EmployeesTable />
       </main>
+      <ToastContainer position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light" />
     </EmployeeContext.Provider>
   );
 }
