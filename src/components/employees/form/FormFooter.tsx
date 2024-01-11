@@ -13,8 +13,8 @@ export default function FormFooter() {
 
     return (
         <FormFooterStyled className="form-footer">
-            <button id="cancel-btn" type="button" role="button" onClick={cancelActionOnClick}>Cancel</button>
-            <button id="submit-btn" type="submit" role="submit">Create</button>
+            <button id="cancel-btn" type="button" aria-label="Cancel new employee creation" onClick={cancelActionOnClick}>Cancel</button>
+            <button id="submit-btn" type="submit" aria-label='Confirm new employee creation'>Create</button>
         </FormFooterStyled>
     )
 }

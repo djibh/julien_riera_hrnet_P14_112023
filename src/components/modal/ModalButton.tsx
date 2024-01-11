@@ -8,7 +8,7 @@ type ModalButtonProps = {
 
 export default function ModalButton({ clickAction }: ModalButtonProps) {
   return (
-    <ButtonStyled onClick={clickAction}>
+    <ButtonStyled onClick={clickAction} aria-label='Create new employee form'>
       <AddCircleIcon />
     </ButtonStyled>
   )
