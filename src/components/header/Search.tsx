@@ -14,7 +14,7 @@ export default function Search() {
     <SearchStyled>
         <ModalButton clickAction={() => setIsModalOpen(true)}/>
         <Modal isOpen={isModalOpen} setIsOpen={setIsModalOpen} theme='neutral' animated>
-          <Form />  
+          <Form />
         </Modal>
     </SearchStyled>
   )

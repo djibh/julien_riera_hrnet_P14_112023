@@ -33,7 +33,6 @@ export default function EmployeesTable() {
           }}
           pageSizeOptions={[5, 10]}
         />
-        
       </TableWrapperStyled>
   )
 }

@@ -58,6 +58,7 @@ export default function App() {
         <Navbar />
         <EmployeesTable />
       </main>
+      {/* toast notification for employee form submission */}
       <ToastContainer position="top-right"
           autoClose={3000}
           hideProgressBar={false}

@@ -25,6 +25,7 @@ const handleCancel= (e: React.MouseEvent<HTMLButtonElement>) => {
 
 }
 
+
 const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => { 
     e.preventDefault()
     const requiredFields = ['firstName', 'lastName', 'street', 'city', 'zipCode'];
@@ -55,11 +56,11 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 
  const notify = () => toast(`Nouvel employé enregistré.`, {
     position: "bottom-right",
-    autoClose: 5000,
+    autoClose: 1500,
     hideProgressBar: false,
     closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
+    pauseOnHover: false,
+    draggable: false,
     progress: undefined,
     theme: "dark",
     });
