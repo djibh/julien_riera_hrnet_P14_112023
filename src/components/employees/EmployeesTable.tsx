@@ -3,8 +3,9 @@ import { columns } from './DataTableConfig'
 import Header from '../header/Header'
 import styled from 'styled-components';
 import { colors } from '../../design';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import EmployeeContext from '../../context/EmployeeContext';
+import useEmployees from '../../hooks/useEmployees';
 
 function QuickSearchToolbar() {
   return (
@@ -15,24 +16,8 @@ function QuickSearchToolbar() {
 }
 
 export default function EmployeesTable() {
-  const { employees, setEmployees } = useContext(EmployeeContext)
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('http://localhost:5000/employees'); 
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const result = await response.json();
-        setEmployees(result);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchData();
-  }, [setEmployees]);
+  const { employees } = useContext(EmployeeContext)
+  useEmployees()
 
     return (
       <TableWrapperStyled className='wrapper'>

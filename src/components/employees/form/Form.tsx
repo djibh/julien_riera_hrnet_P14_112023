@@ -8,6 +8,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import EmployeeContext from "../../../context/EmployeeContext";
 import { colors } from "../../../design";
 import { cleanFormOnSuccess, createFormEmployee } from './FormConfig'
+import usePost from '../../../hooks/usePost'
 
 export default function Form() {
 const date = new Date() 
@@ -18,6 +19,7 @@ const [selectedState, setSelectedState] = useState({ value: '', label: 'Select' 
 const { employees, setEmployees, setIsModalOpen } = useContext(EmployeeContext) 
 
 const formRef = useRef<HTMLFormElement>(null);
+const { postEmployee } = usePost()
 
 const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => { 
     e.preventDefault()
@@ -36,39 +38,14 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         return;
     }
 
-    //Create employee from form data and prepare data for state setter
+    //Create employee from form data, prepare data for state setter
     const newEmployee = createFormEmployee(formElement, startDate, selectedDepartment, birthDate, selectedState)
+    const updatedEmployeesList = [...employees, newEmployee]
+    postEmployee(newEmployee)
 
-    try {
-        const response = await fetch('http://localhost:5000/employee', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newEmployee),
-        });
-
-        if (!response.ok) {
-        throw new Error('Network response was not ok');
-        }
-
-        const result = await response.json();
-        console.log('POST response:', result);
-
-    } catch (error) {
-        console.error('Error submitting form:', error);
-    }
-
-    // Réinitialisez le formulaire ou effectuez d'autres actions après la réussite de la requête
-    const newList = [...employees, newEmployee]
-    console.log("before");
-    
-    setEmployees(newList)
-
-    console.log("after");
-    
+    setEmployees(updatedEmployeesList);
     cleanFormOnSuccess(formRef, setBirthDate, setStartDate, setSelectedDepartment, setSelectedState)
-
+    
     //Clear form upon success submission, close modal and display success notification
     setIsModalOpen(false)
     successNotification()
