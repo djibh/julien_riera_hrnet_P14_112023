@@ -38,8 +38,6 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
     //Create employee from form data and prepare data for state setter
     const newEmployee = createFormEmployee(formElement, startDate, selectedDepartment, birthDate, selectedState)
-    const newList = [...employees, newEmployee]
-    setEmployees(newList)
 
     try {
         const response = await fetch('http://localhost:5000/employee', {
@@ -57,14 +55,19 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         const result = await response.json();
         console.log('POST response:', result);
 
-        // Réinitialisez le formulaire ou effectuez d'autres actions après la réussite de la requête
-        cleanFormOnSuccess(formRef, setBirthDate, setStartDate, setSelectedDepartment, setSelectedState)
-
     } catch (error) {
         console.error('Error submitting form:', error);
     }
 
+    // Réinitialisez le formulaire ou effectuez d'autres actions après la réussite de la requête
+    const newList = [...employees, newEmployee]
+    console.log("before");
     
+    setEmployees(newList)
+
+    console.log("after");
+    
+    cleanFormOnSuccess(formRef, setBirthDate, setStartDate, setSelectedDepartment, setSelectedState)
 
     //Clear form upon success submission, close modal and display success notification
     setIsModalOpen(false)

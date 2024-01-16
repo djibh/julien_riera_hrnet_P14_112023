@@ -3,7 +3,8 @@ import { columns } from './DataTableConfig'
 import Header from '../header/Header'
 import styled from 'styled-components';
 import { colors } from '../../design';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
+import EmployeeContext from '../../context/EmployeeContext';
 
 function QuickSearchToolbar() {
   return (
@@ -14,8 +15,7 @@ function QuickSearchToolbar() {
 }
 
 export default function EmployeesTable() {
-  // const { employees } = useContext(EmployeeContext)
-  const [data, setData] = useState([]);
+  const { employees, setEmployees } = useContext(EmployeeContext)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,14 +25,14 @@ export default function EmployeesTable() {
           throw new Error('Network response was not ok');
         }
         const result = await response.json();
-        setData(result);
+        setEmployees(result);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
 
     fetchData();
-  }, []);
+  }, [setEmployees]);
 
     return (
       <TableWrapperStyled className='wrapper'>
@@ -41,14 +41,14 @@ export default function EmployeesTable() {
           className='datatable'
           slots={{toolbar: QuickSearchToolbar}}
           key={Math.random()*100*4}
-          rows={data}
+          rows={employees}
           columns={columns}
           initialState={{
             pagination: {
-              paginationModel: { page: 0, pageSize: 5 },
+              paginationModel: { page: 0, pageSize: 10 },
             },
           }}
-          pageSizeOptions={[5, 10]}
+          pageSizeOptions={[5, 10, 20]}
         />
       </TableWrapperStyled>
   )
