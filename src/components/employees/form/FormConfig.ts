@@ -15,7 +15,7 @@ export const createFormEmployee = (
         startDate: startDate.toLocaleDateString("fr"),
         department: selectedDepartment.value,
         birthDate: birthDate.toLocaleDateString("fr"),
-        street: formElement.street.value,
+        address: formElement.street.value,
         city: formElement.city.value,
         state: selectedState.value,
         postalCode:  formElement.postalCode.value

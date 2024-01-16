@@ -19,7 +19,7 @@ const { employees, setEmployees, setIsModalOpen } = useContext(EmployeeContext)
 
 const formRef = useRef<HTMLFormElement>(null);
 
-const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => { 
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => { 
     e.preventDefault()
     const requiredFields = ['firstName', 'lastName', 'street', 'city', 'postalCode'];
     
@@ -36,13 +36,37 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         return;
     }
 
-    //Create employee from form data and add to table
+    //Create employee from form data and prepare data for state setter
     const newEmployee = createFormEmployee(formElement, startDate, selectedDepartment, birthDate, selectedState)
     const newList = [...employees, newEmployee]
     setEmployees(newList)
 
+    try {
+        const response = await fetch('http://localhost:5000/employee', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newEmployee),
+        });
+
+        if (!response.ok) {
+        throw new Error('Network response was not ok');
+        }
+
+        const result = await response.json();
+        console.log('POST response:', result);
+
+        // Réinitialisez le formulaire ou effectuez d'autres actions après la réussite de la requête
+        cleanFormOnSuccess(formRef, setBirthDate, setStartDate, setSelectedDepartment, setSelectedState)
+
+    } catch (error) {
+        console.error('Error submitting form:', error);
+    }
+
+    
+
     //Clear form upon success submission, close modal and display success notification
-    cleanFormOnSuccess(formRef, setBirthDate, setStartDate, setSelectedDepartment, setSelectedState)
     setIsModalOpen(false)
     successNotification()
  }
