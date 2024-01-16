@@ -1,7 +1,7 @@
 import { createEmployee, employees } from '../../data/employees'
 
 interface Column {
-    field: 'id' | 'firstName' | 'lastName' | 'startDate' | 'department' | 'birthDate' | 'street' | 'city' | 'state' | 'zipCode';
+    field: 'id' | 'firstName' | 'lastName' | 'startDate' | 'department' | 'birthDate' | 'address' | 'city' | 'state' | 'postalCode';
     headerName: string;
     width?: number;
     align?: 'right';
@@ -15,10 +15,10 @@ export const columns: Column[] = [
   { field: 'startDate', headerName: 'Start date', width: 120 },
   { field: 'department', headerName: 'Department', width: 180},
   { field: 'birthDate', headerName: 'Date of birth', width: 120 },
-  { field: 'street', headerName: 'Street', width: 180},
+  { field: 'address', headerName: 'Street', width: 180},
   { field: 'city', headerName: 'City', width: 160 },
   { field: 'state', headerName: 'State', width: 100 },
-  { field: 'zipCode', headerName: 'Zip Code', width: 100 }
+  { field: 'postalCode', headerName: 'Zip Code', width: 100 }
 ];
 
 export const rows = 
@@ -30,10 +30,10 @@ export const rows =
             employee.startDate,
             employee.department,
             employee.birthDate,
-            employee.street,
+            employee.address,
             employee.city,
             employee.state,
-            employee.zipCode,
+            employee.postalCode,
         )        
     })
 ;

@@ -18,7 +18,7 @@ export const createFormEmployee = (
         street: formElement.street.value,
         city: formElement.city.value,
         state: selectedState.value,
-        zipCode:  formElement.zipCode.value
+        postalCode:  formElement.postalCode.value
     } 
   }
 

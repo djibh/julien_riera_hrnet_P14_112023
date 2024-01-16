@@ -21,7 +21,7 @@ const formRef = useRef<HTMLFormElement>(null);
 
 const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => { 
     e.preventDefault()
-    const requiredFields = ['firstName', 'lastName', 'street', 'city', 'zipCode'];
+    const requiredFields = ['firstName', 'lastName', 'street', 'city', 'postalCode'];
     
     //Typescript req - check if element is a form
     if (!e.target || !(e.target instanceof HTMLFormElement)) {

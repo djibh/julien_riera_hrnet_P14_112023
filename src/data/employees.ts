@@ -5,10 +5,10 @@ export interface Employee {
     startDate: string,
     department: string,
     birthDate: string,
-    street: string,
+    address: string,
     city: string,
     state: string,
-    zipCode: number,
+    postalCode: number,
   }
   
   export const employees: Employee[] = [ 
@@ -19,10 +19,10 @@ export interface Employee {
         startDate: '12/12/2023', 
         department: 'Sales',
         birthDate: '02/04/1978', 
-        street: '2',
+        address: '2',
         city: 'New York',
         state: 'WA',
-        zipCode: 35000
+        postalCode: 35000
     },
     {
         id: Math.round(Math.random()*100), 
@@ -31,10 +31,10 @@ export interface Employee {
         startDate: '28/02/2010', 
         department: 'Engineering',
         birthDate: '02/11/1983', 
-        street: '2',
+        address: '2',
         city: 'New York',
         state: 'WA',
-        zipCode: 35000
+        postalCode: 35000
     },
     {
         id: Math.round(Math.random()*100), 
@@ -43,10 +43,10 @@ export interface Employee {
         startDate: '24/05/2017', 
         department: 'P&L',
         birthDate: '02/04/1978', 
-        street: '3',
+        address: '3',
         city: 'Miami',
         state: 'FL',
-        zipCode: 35000
+        postalCode: 35000
     },
     {
         id: Math.round(Math.random()*100), 
@@ -55,10 +55,10 @@ export interface Employee {
         startDate: '14/10/2023', 
         department: 'Merch',
         birthDate: '02/04/1978', 
-        street: '6',
+        address: '6',
         city: 'San Francisco',
         state: 'CA',
-        zipCode: 35000
+        postalCode: 35000
     },
     {
         id: Math.round(Math.random()*100),
@@ -67,10 +67,10 @@ export interface Employee {
         startDate: '12/12/2023', 
         department: 'Sales',
         birthDate: '02/04/1978', 
-        street: '2',
+        address: '2',
         city: 'New York',
         state: 'WA',
-        zipCode: 35000
+        postalCode: 35000
     },
     {
         id: Math.round(Math.random()*10), 
@@ -79,10 +79,10 @@ export interface Employee {
         startDate: '28/02/2010', 
         department: 'Engineering',
         birthDate: '02/11/1983', 
-        street: '2',
+        address: '2',
         city: 'New York',
         state: 'WA',
-        zipCode: 35000
+        postalCode: 35000
     },
     {
         id: Math.round(Math.random()*100),
@@ -91,10 +91,10 @@ export interface Employee {
         startDate: '24/05/2017', 
         department: 'P&L',
         birthDate: '02/04/1978', 
-        street: '3',
+        address: '3',
         city: 'Miami',
         state: 'FL',
-        zipCode: 35000
+        postalCode: 35000
     },
     {
         id: Math.round(Math.random()*100),
@@ -103,10 +103,10 @@ export interface Employee {
         startDate: '14/10/2023', 
         department: 'Merch',
         birthDate: '02/04/1978', 
-        street: '6',
+        address: '6',
         city: 'San Francisco',
         state: 'CA',
-        zipCode: 35000
+        postalCode: 35000
     },
     {
         id: Math.round(Math.random()*100),
@@ -115,10 +115,10 @@ export interface Employee {
         startDate: '12/12/2023', 
         department: 'Sales',
         birthDate: '02/04/1978', 
-        street: '2',
+        address: '2',
         city: 'New York',
         state: 'WA',
-        zipCode: 35000
+        postalCode: 35000
     },
     {
         id: Math.round(Math.random()*100),
@@ -127,10 +127,10 @@ export interface Employee {
         startDate: '28/02/2010', 
         department: 'Engineering',
         birthDate: '02/11/1983', 
-        street: '2',
+        address: '2',
         city: 'New York',
         state: 'WA',
-        zipCode: 35000
+        postalCode: 35000
     },
     {
         id: Math.round(Math.random()*100),
@@ -139,10 +139,10 @@ export interface Employee {
         startDate: '24/05/2017', 
         department: 'P&L',
         birthDate: '02/04/1978', 
-        street: '3',
+        address: '3',
         city: 'Miami',
         state: 'FL',
-        zipCode: 35000
+        postalCode: 35000
     },
     {
         id: Math.round(Math.random()*100),
@@ -151,10 +151,10 @@ export interface Employee {
         startDate: '14/10/2023', 
         department: 'Merch',
         birthDate: '02/04/1978', 
-        street: '6',
+        address: '6',
         city: 'San Francisco',
         state: 'CA',
-        zipCode: 35000
+        postalCode: 35000
     }
   ]
   
@@ -165,10 +165,10 @@ export interface Employee {
     startDate: string,
     department: string,
     birthDate: string,
-    street: string,
+    address: string,
     city: string,
     state: string,
-    zipCode: number
+    postalCode: number
   ): Employee {
-    return { id, firstName, lastName, startDate, department, birthDate, street, city, state, zipCode };
+    return { id, firstName, lastName, startDate, department, birthDate, address, city, state, postalCode };
   }

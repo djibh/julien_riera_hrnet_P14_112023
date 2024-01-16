@@ -14,7 +14,7 @@ const initEmployees = [{
     street: '2',
     city: 'New York',
     state: 'WA',
-    zipCode: 35000
+    postalCode: 35000
 },
 {
     id: Math.round(Math.random()*100), 
@@ -26,7 +26,7 @@ const initEmployees = [{
     street: '21',
     city: 'New York',
     state: 'WA',
-    zipCode: 35000
+    postalCode: 35000
 },
 {
   id: Math.round(Math.random()*100), 
@@ -38,7 +38,7 @@ const initEmployees = [{
   street: '7',
   city: 'New York',
   state: 'WA',
-  zipCode: 35000
+  postalCode: 35000
 }]
 
 export default function App() {

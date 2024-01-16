@@ -74,8 +74,8 @@ export default function FormBody({startDate, birthDate, selectedDepartment, sele
             />
         </div>
         <div className="flex">
-            <label htmlFor="zipCode">Zip code</label>
-            <input type="text" name="zipCode" id="zipCode" />
+            <label htmlFor="postalCode">Zip code</label>
+            <input type="text" name="postalCode" id="postalCode" />
         </div>
     </FormBodyStyled>
   )
