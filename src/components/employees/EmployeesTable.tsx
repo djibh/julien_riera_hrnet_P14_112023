@@ -40,10 +40,11 @@ export default function EmployeesTable() {
 }
 
 const TableWrapperStyled = styled.div`
-    max-width: 1400px;
+    max-width: 1300px;
     margin: auto;
     text-align: center;
     padding-inline: 0.5em;
+    padding-bottom: 3em;
 
     th, td {
       font-family: 'IBM Plex Sans', sans-serif;
