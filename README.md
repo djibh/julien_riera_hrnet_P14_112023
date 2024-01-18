@@ -17,7 +17,7 @@ git clone https://github.com/djibh/julien_riera_hrnet_P14_112023.git
 Go to cloned folder and install dependencies:
 
 ```
-julien_riera_hrnet_P14_112023
+cd ~/path/to/julien_riera_hrnet_P14_112023
 npm install
 ```
 
