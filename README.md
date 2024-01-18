@@ -25,5 +25,6 @@ Run the website locally:
 
 ```
 npm run dev
-http://localhost:5173
 ```
+
+The local address is: http://localhost:5173.
