@@ -1,3 +1,9 @@
+/* Toast.ts - Style
+ *
+ * This file provides customization for the behaviour and style of the notification (toast) shown when a form submission is done.
+ * 
+ */
+
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 

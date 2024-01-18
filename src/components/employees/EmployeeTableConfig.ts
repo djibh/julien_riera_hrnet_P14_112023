@@ -1,4 +1,9 @@
-import { createEmployee, employees } from '../../data/employees'
+/* EmployeeTableConfig.ts
+ *
+ * This file provides the configuration for the general structure of the EmployeesTable component.
+ *  
+ */
+
 
 interface Column {
     field: 'id' | 'firstName' | 'lastName' | 'startDate' | 'department' | 'birthDate' | 'street' | 'city' | 'state' | 'zipCode';
@@ -20,20 +25,3 @@ export const columns: Column[] = [
   { field: 'state', headerName: 'State', width: 100 },
   { field: 'zipCode', headerName: 'Zip Code', width: 100 }
 ];
-
-export const rows = 
-    employees.map(employee => {
-        return createEmployee(
-            employee.id,
-            employee.firstName,
-            employee.lastName,
-            employee.startDate,
-            employee.department,
-            employee.birthDate,
-            employee.street,
-            employee.city,
-            employee.state,
-            employee.zipCode,
-        )        
-    })
-;

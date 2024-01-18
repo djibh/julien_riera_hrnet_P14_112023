@@ -1,5 +1,14 @@
+/* EmployeesTable.tsx - Component
+ *
+ * This component is built using Material UI grid component. It provides all of the features needed from the previous version of the site.
+ * e.g. - global search, column filter, sorting...
+ * 
+ * A config file is used to build the header cells and the columns. 
+ * 
+ */
+
 import { DataGrid, GridToolbarQuickFilter } from '@mui/x-data-grid';
-import { columns } from './DataTableConfig'
+import { columns } from './EmployeeTableConfig'
 import Header from '../header/Header'
 import styled from 'styled-components';
 import { colors } from '../../design';

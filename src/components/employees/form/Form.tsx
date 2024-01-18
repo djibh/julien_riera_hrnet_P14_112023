@@ -1,10 +1,17 @@
+/* Form.tsx - Component
+ *
+ * This component is used to build the form UI and holds the general logic need to add a new employee to the list.
+ * 
+ * A config file is used to provide a few helper functions and the dropdowns (department / state) select items.
+ * 
+ */
+
 import { useContext, useState, useRef } from "react";
 import styled from "styled-components";
 import FormHeader from './FormHeader';
 import FormBody from './FormBody';
 import FormFooter from './FormFooter';
 import { successNotification, errorNotification } from '../../reusable/Toasts'
-import "react-datepicker/dist/react-datepicker.css";
 import EmployeeContext from "../../../context/EmployeeContext";
 import { colors } from "../../../design";
 import { cleanFormOnSuccess, createFormEmployee } from './FormConfig'

@@ -1,5 +1,12 @@
+/* FormConfig.ts
+ *
+ * This file provides several helper functions as well as select options for the dropdown lists used in the form element.
+ *  
+ */
+
 import { Dispatch, RefObject, SetStateAction } from "react"
-import { Employee } from "../../../data/employees"
+import { Employee } from "../../../shared/lib/types"
+
 
 export const createFormEmployee = (
     formElement: HTMLFormElement, 

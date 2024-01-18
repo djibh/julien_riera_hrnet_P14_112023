@@ -1,5 +1,16 @@
+/* FormBody.tsx - Component
+ *
+ * This component builds the inputs the user is required to fulfill to submit the form.
+ * 
+ * Two librairies are used to make it easier:
+ * -> react-select for the dropdown inputs
+ * -> react-datepicker for the date selection inputs
+ * 
+ */
+
 import Select from "react-select";
 import DatePicker  from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import { departments, states } from './FormConfig'
 import styled from "styled-components";
 import { colors } from "../../../design";
