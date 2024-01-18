@@ -15,9 +15,10 @@ import { colors } from '../../design';
 import { useContext } from 'react';
 import EmployeeContext from '../../context/EmployeeContext';
 
+// This function is used to show the built-in search field of the MUI datagrid.
 function QuickSearchToolbar() {
   return (
-      <div style={{ width:"30%", textAlign:"left", position:"relative", borderWidth:"0"}}>
+      <div className="search-field">
         <GridToolbarQuickFilter />
       </div>
   );
@@ -40,7 +41,7 @@ export default function EmployeesTable() {
               paginationModel: { page: 0, pageSize: 5 },
             },
           }}
-          pageSizeOptions={[5, 10]}
+          pageSizeOptions={[5, 10, 20]}
         />
       </TableWrapperStyled>
   )
@@ -51,9 +52,20 @@ const TableWrapperStyled = styled.div`
     margin: auto;
     text-align: center;
     padding-inline: 0.5em;
+    padding-bottom: 3em;
 
     th, td {
       font-family: 'IBM Plex Sans', sans-serif;
+    }
+
+    .search-field {
+      position:"relative";
+      display: flex;
+      align-items: center;
+      width: "30%";
+      height: 60px;
+      text-align: left;
+      border-width:"0";
     }
 
     .datatable {

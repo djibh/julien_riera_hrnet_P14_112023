@@ -6,6 +6,8 @@
 
 import { Dispatch, RefObject, SetStateAction } from "react"
 import { Employee } from "../../../shared/lib/types"
+import { v4 as uuidv4 } from 'uuid';
+
 
 
 export const createFormEmployee = (
@@ -16,7 +18,7 @@ export const createFormEmployee = (
     selectedState: {value: string, label: string}
 ): Employee => { 
     return {
-        id: Math.round(Math.random()*100),
+        id: uuidv4(),
         firstName: formElement.firstName.value,
         lastName:  formElement.lastName.value,
         startDate: startDate.toLocaleDateString("fr"),
