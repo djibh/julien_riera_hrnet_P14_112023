@@ -1,5 +1,14 @@
+/* FormConfig.ts
+ *
+ * This file provides several helper functions as well as select options for the dropdown lists used in the form element.
+ *  
+ */
+
 import { Dispatch, RefObject, SetStateAction } from "react"
-import { Employee } from "../../../data/employees"
+import { Employee } from "../../../shared/lib/types"
+import { v4 as uuidv4 } from 'uuid';
+
+
 
 export const createFormEmployee = (
     formElement: HTMLFormElement, 
@@ -9,16 +18,16 @@ export const createFormEmployee = (
     selectedState: {value: string, label: string}
 ): Employee => { 
     return {
-        id: Math.round(Math.random()*100),
+        id: uuidv4(),
         firstName: formElement.firstName.value,
         lastName:  formElement.lastName.value,
         startDate: startDate.toLocaleDateString("fr"),
         department: selectedDepartment.value,
         birthDate: birthDate.toLocaleDateString("fr"),
-        address: formElement.street.value,
+        street: formElement.street.value,
         city: formElement.city.value,
         state: selectedState.value,
-        postalCode:  formElement.postalCode.value
+        zipCode:  formElement.zipCode.value
     } 
   }
 

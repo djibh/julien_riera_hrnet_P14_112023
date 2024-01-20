@@ -1,3 +1,9 @@
+/* FormFooter.tsx - Component
+ *
+ * This component is used to handle the cancel and submit buttons of the form.
+ * 
+ */
+
 import { styled } from 'styled-components'
 import { colors } from "../../../design";
 import { useContext } from 'react';

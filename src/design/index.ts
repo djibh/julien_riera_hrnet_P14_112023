@@ -1,28 +1,21 @@
+/* /design/index.ts
+ *
+ * This file provides multiple colors to be used using import in the project components and serve as a design system.
+ *  
+ */
+
 export const colors = {
     primary: "hsl(71.13402061855669, 49.23857868020305%, 60.627450980392155%);",
-    blue200: "#bfdbfe",
-    blue300: "#93c5fd",
-    blue400: "#60a5fa",
     blue500: "#3b82f6",
     blue600: "#2563eb",
-    blue700: "#1d4ed8",
-    blue800: "#1e40af",
-    green200: "#bbf7d0",
     green300: "#86efac",
     green400: "#4ade80",
-    green500: "#22c55e",
-    green600: "#16a34a",
-    green700: "#15803d",
-    green800: "#166534",
     grey050: "#f9fafb",
     grey100: "#f3f4f6",
-    grey200: "#e5e7eb",
-    grey300: "#d1d5db",
     grey400: "#9ca3af",
     grey500: "#6b7280",
     grey600: "#4b5563",
     grey700: "#374151",
     grey800: "#1f2937",
     grey900: "#111827",
-    grey950: "#030712",
 }

@@ -1,3 +1,9 @@
+/* FormHeader.tsx - Component
+ *
+ * This component is used to build the header UI of the form, here it's the logo and title.
+ * 
+ */
+
 import styled from "styled-components";
 
 export default function FormHeader() {

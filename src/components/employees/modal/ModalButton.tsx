@@ -1,6 +1,13 @@
+/* ModalButton.tsx - Component
+ *
+ * This component is a custom button specifically built to show the NewEmployeeModal component.
+ * It takes one function as a property. In this case, a setter to show the modal.
+ *  
+ */
+
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import styled from 'styled-components';
-import { colors } from '../../design';
+import { colors } from '../../../design';
 
 type ModalButtonProps = {
     clickAction: React.MouseEventHandler<HTMLButtonElement>

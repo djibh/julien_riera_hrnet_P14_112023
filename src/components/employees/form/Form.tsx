@@ -1,14 +1,20 @@
+/* Form.tsx - Component
+ *
+ * This component is used to build the form UI and holds the general logic need to add a new employee to the list.
+ * 
+ * A config file is used to provide a few helper functions and the dropdowns (department / state) select items.
+ * 
+ */
+
 import { useContext, useState, useRef } from "react";
 import styled from "styled-components";
 import FormHeader from './FormHeader';
 import FormBody from './FormBody';
 import FormFooter from './FormFooter';
 import { successNotification, errorNotification } from '../../reusable/Toasts'
-import "react-datepicker/dist/react-datepicker.css";
 import EmployeeContext from "../../../context/EmployeeContext";
 import { colors } from "../../../design";
 import { cleanFormOnSuccess, createFormEmployee } from './FormConfig'
-import usePost from '../../../hooks/usePost'
 
 export default function Form() {
 const date = new Date() 
@@ -19,11 +25,10 @@ const [selectedState, setSelectedState] = useState({ value: '', label: 'Select' 
 const { employees, setEmployees, setIsModalOpen } = useContext(EmployeeContext) 
 
 const formRef = useRef<HTMLFormElement>(null);
-const { postEmployee } = usePost()
 
-const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => { 
+const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => { 
     e.preventDefault()
-    const requiredFields = ['firstName', 'lastName', 'street', 'city', 'postalCode'];
+    const requiredFields = ['firstName', 'lastName', 'street', 'city', 'zipCode'];
     
     //Typescript req - check if element is a form
     if (!e.target || !(e.target instanceof HTMLFormElement)) {
@@ -38,15 +43,13 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         return;
     }
 
-    //Create employee from form data, prepare data for state setter
+    //Create employee from form data and add to table
     const newEmployee = createFormEmployee(formElement, startDate, selectedDepartment, birthDate, selectedState)
-    const updatedEmployeesList = [...employees, newEmployee]
-    postEmployee(newEmployee)
+    const newList = [...employees, newEmployee]
+    setEmployees(newList)
 
-    setEmployees(updatedEmployeesList);
-    cleanFormOnSuccess(formRef, setBirthDate, setStartDate, setSelectedDepartment, setSelectedState)
-    
     //Clear form upon success submission, close modal and display success notification
+    cleanFormOnSuccess(formRef, setBirthDate, setStartDate, setSelectedDepartment, setSelectedState)
     setIsModalOpen(false)
     successNotification()
  }

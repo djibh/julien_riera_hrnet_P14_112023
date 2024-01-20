@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { Employee } from "../data/employees"
+import { Employee } from "../shared/lib/types";
 
 type ContextType = {
     employees: Employee[],

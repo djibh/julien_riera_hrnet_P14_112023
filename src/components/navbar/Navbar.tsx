@@ -1,3 +1,9 @@
+/* Navbar.tsx - Component
+ *
+ * This component is currently used to show the company logo. Could be used to add navigation items too.
+ *  
+ */
+
 import styled from "styled-components";
 
 export default function Navbar() {

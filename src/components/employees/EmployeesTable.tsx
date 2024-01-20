@@ -1,23 +1,43 @@
+/* EmployeesTable.tsx - Component
+ *
+ * This component is built using Material UI grid component. It provides all of the features needed from the previous version of the site.
+ * e.g. - global search, column filter, sorting...
+ * 
+ * A config file is used to build the header cells and the columns. 
+ * 
+ */
+
 import { DataGrid, GridToolbarQuickFilter } from '@mui/x-data-grid';
-import { columns } from './DataTableConfig'
+import { columns } from './EmployeeTableConfig'
 import Header from '../header/Header'
 import styled from 'styled-components';
 import { colors } from '../../design';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import EmployeeContext from '../../context/EmployeeContext';
-import useEmployees from '../../hooks/useEmployees';
+import { getEmployees } from '../../api/EmployeeService'
+import { AxiosResponse } from 'axios';
+import { Employee } from '../../shared/lib/types';
 
+// This function is used to show the built-in search field of the MUI datagrid.
 function QuickSearchToolbar() {
   return (
-      <div style={{ width:"30%", textAlign:"left", position:"relative", borderWidth:"0"}}>
+      <div className="search-field">
         <GridToolbarQuickFilter />
       </div>
   );
 }
 
 export default function EmployeesTable() {
-  const { employees } = useContext(EmployeeContext)
-  useEmployees()
+  const { employees, setEmployees } = useContext(EmployeeContext)
+
+  useEffect(() => {
+    const fetchEmployees = async () => {
+      const response: AxiosResponse<Employee[]> = await getEmployees()
+      setEmployees(response.data)
+    }
+    fetchEmployees()
+      .catch(console.error)    
+  }, [setEmployees])
 
     return (
       <TableWrapperStyled className='wrapper'>
@@ -30,7 +50,7 @@ export default function EmployeesTable() {
           columns={columns}
           initialState={{
             pagination: {
-              paginationModel: { page: 0, pageSize: 10 },
+              paginationModel: { page: 0, pageSize: 5 },
             },
           }}
           pageSizeOptions={[5, 10, 20]}
@@ -40,7 +60,7 @@ export default function EmployeesTable() {
 }
 
 const TableWrapperStyled = styled.div`
-    max-width: 1300px;
+    max-width: 1400px;
     margin: auto;
     text-align: center;
     padding-inline: 0.5em;
@@ -48,6 +68,16 @@ const TableWrapperStyled = styled.div`
 
     th, td {
       font-family: 'IBM Plex Sans', sans-serif;
+    }
+
+    .search-field {
+      position:"relative";
+      display: flex;
+      align-items: center;
+      width: "30%";
+      height: 60px;
+      text-align: left;
+      border-width:"0";
     }
 
     .datatable {
