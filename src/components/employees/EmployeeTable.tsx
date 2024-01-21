@@ -27,7 +27,7 @@ function QuickSearchToolbar() {
   );
 }
 
-export default function EmployeesTable() {
+export default function EmployeeTable() {
   const { employees, setEmployees } = useContext(EmployeeContext)
 
   useEffect(() => {

@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { Employee } from '../shared/lib/types';
+import { Employee } from '@/types';
 
 const initialEmployees: Employee[] = [
   {

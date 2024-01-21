@@ -1,38 +1,30 @@
-import EmployeesTable from './components/employees/EmployeesTable';
-import Navbar from '../src/components/navbar/Navbar'
-import { useState } from 'react';
-import EmployeeContext from './context/EmployeeContext';
-import { ToastContainer } from 'react-toastify';
-import initialEmployees from './data/initialEmployees'
+import { Routes, Route } from "react-router-dom";
 
-export default function App() {
-  const [employees, setEmployees] = useState(initialEmployees)
-  const [isModalOpen, setIsModalOpen] = useState(false)
+import AuthLayout from "./layout/AuthLayout"
+import BaseLayout from "./layout/BaseLayout"
+import Homepage from "./pages/Homepage";
+import Login from "./pages/Login";
 
-  const ContextValue = {
-    employees,
-    setEmployees,
-    isModalOpen,
-    setIsModalOpen
-  }
+const App = () => {
+    return (
+      <main className="flex h-screen">
+        <Routes>
+          {/* public routes */}
+          <Route element={<AuthLayout />}>
+            <Route path="/login" element={<Login />} />
+          </Route>
+  
+          {/* private routes */}
+          <Route element={<BaseLayout />}>
+            <Route index element={<Homepage />} />
+            {/* <Route path="/all-users" element={<AllUsers />} /> */}
+            {/* <Route path="/saved" element={<Saved />} /> */}
+            {/* <Route path="/profile/:id/*" element={<Profile />} /> */}
+            {/* <Route path="/update-profile/:id" element={<UpdateProfile />} /> */}
+          </Route>
+        </Routes>
+    </main>
+    );
+  };
 
-  return (
-    <EmployeeContext.Provider value={ContextValue}>
-      <main>
-        <Navbar />
-        <EmployeesTable />
-      </main>
-      {/* toast notification for employee form submission */}
-      <ToastContainer position="top-right"
-          autoClose={3000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light" />
-    </EmployeeContext.Provider>
-  );
-}
+  export default App;

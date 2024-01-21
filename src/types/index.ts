@@ -1,4 +1,11 @@
-export interface Employee {
+export type IUser = {
+    id: string;
+    name: string;
+    username: string;
+    email: string;
+};
+
+export type Employee = {
     id: string,
     firstName: string,
     lastName: string,
@@ -9,4 +16,4 @@ export interface Employee {
     city: string,
     state: string,
     zipCode: number,
-  }
+}

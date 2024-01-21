@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { Employee } from "../shared/lib/types";
+import { Employee } from "@/types"
 
 type ContextType = {
     employees: Employee[],
@@ -12,7 +12,7 @@ const ContextInit = {
     employees: [],
     setEmployees: () => [],
     isModalOpen: false,
-    setIsModalOpen: () => {},
+    setIsModalOpen: () => { },
 }
 
 const EmployeeContext = createContext<ContextType>(ContextInit)
