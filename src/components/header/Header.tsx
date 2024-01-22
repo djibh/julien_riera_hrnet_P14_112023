@@ -11,17 +11,33 @@ import colors from '../../design'
 export default function Header() {
   return (
     <HeaderStyled>
-      <h1>1 EMPLOYE</h1>
+      <div className='title'>
+        <h1>Employés (1)</h1>
+        <h2>Liste des employés actuellement enregistrés</h2>
+      </div>
       <NewEmployeeModal />
     </HeaderStyled>
   )
 }
 
 const HeaderStyled = styled.header`
-  h1 {
-      font-size: 2rem;
-      margin-top: 1.5em;
-      margin-bottom: 0.5em;
+  display: flex;
+  align-items: center;
+
+  .title {
+    flex: 1;
+
+    h1 {
+      font-size: 1.8rem;
       color: ${colors.primary};
+      margin-bottom: 0;
     }
+
+    h2 {
+      font-size: 0.9rem;
+      margin-top: 5px;
+      color: ${colors.grey400};
+    }
+  }
+  
 `;

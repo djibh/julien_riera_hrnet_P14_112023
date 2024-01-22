@@ -5,7 +5,7 @@
  *  
  */
 
-import AddCircleIcon from '@mui/icons-material/AddCircle';
+import PersonAdd from '@mui/icons-material/PersonAdd';
 import styled from 'styled-components';
 import colors from '../../../design';
 
@@ -16,7 +16,7 @@ type ModalButtonProps = {
 export default function ModalButton({ clickAction }: ModalButtonProps) {
   return (
     <ButtonStyled onClick={clickAction} aria-label='Create new employee form'>
-      <AddCircleIcon />
+      <PersonAdd />
       <div>Ajouter</div>
     </ButtonStyled>
   )
@@ -31,7 +31,7 @@ const ButtonStyled = styled.button`
   border-radius: 5px;
   font-size: 1em;
   font-weight: 600;
-  gap: 5px;
+  gap: 10px;
   background-color: ${colors.celadon};
   box-shadow: 0px 1px 2px 1px #d1d1d1;
 

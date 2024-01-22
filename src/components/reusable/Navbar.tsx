@@ -12,14 +12,14 @@ export default function Navbar() {
     <HeaderStyled>
           <nav>
             <img src="/logo2.png" alt="Logo de la société Wealth Health" className="navbar__logo"/>
-            <img src="https://api.dicebear.com/7.x/thumbs/svg?seed=Callie&scale=80&radius=50" className="navbar__avatar" alt="avatar" />
+            <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Bob&scale=110" className="navbar__avatar" alt="avatar" />
           </nav>
     </HeaderStyled>
   )
 }
 
 const HeaderStyled = styled.header`
-    height: 15vh;
+    height: 10vh;
     display: grid;
     place-items: center;
     background: white;
@@ -38,8 +38,8 @@ const HeaderStyled = styled.header`
         }
         .navbar__avatar {
             max-width: 50px;
-            padding: 5px;
             border-radius: 50%;
+            background-color: ${colors.lavenderBlush};
         }
     }
 `;
