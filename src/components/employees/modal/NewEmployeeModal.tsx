@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { colors } from '../../../design/index'
+import colors from '../../../design/index'
 import Modal from 'simpl-modal';
 
 import ModalButton from './ModalButton';

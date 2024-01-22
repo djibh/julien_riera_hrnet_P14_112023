@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 import { IUser } from "../types"
 
-export const INITIAL_USER: IUser = {
+const INITIAL_USER: IUser = {
     id: "",
     name: "",
     username: "",
@@ -73,7 +73,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         }
 
         checkAuthUser();
-    }, []);
+    }, [navigate]);
 
     const value = {
         user,
@@ -87,4 +87,4 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return <AuthContext.Provider value={ value }>{ children }</AuthContext.Provider>;
 }
 
-export const useUserContext = () => useContext(AuthContext);
+// export const useUserContext = () => useContext(AuthContext);

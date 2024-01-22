@@ -9,7 +9,7 @@ import styled from "styled-components";
 export default function FormHeader() {
   return (
     <FormHeaderStyled>
-        <img src="/logo-form.png" alt="Logo de la société Wealth Health" className="logo"/>
+        <img src="/logo2.png" alt="Logo de la société Wealth Health" className="logo"/>
         <h2>Create employee</h2>
     </FormHeaderStyled>
   )

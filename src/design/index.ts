@@ -4,12 +4,15 @@
  *  
  */
 
-export const colors = {
-    primary: "hsl(71.13402061855669, 49.23857868020305%, 60.627450980392155%);",
-    blue500: "#3b82f6",
-    blue600: "#2563eb",
-    green300: "#86efac",
-    green400: "#4ade80",
+const colors = {
+    primary: "#0F659B",
+    tertiary: "#EDE3E4",
+    submitButton: "#3b82f6",
+    submitButtonHover: "#2563eb",
+    lapisLazuli: "#0e659bff",
+    lavenderBlush: "#ede3e4ff",
+    lightRed: "#ff6b6cff",
+    celadon: "#91c499ff",
     grey050: "#f9fafb",
     grey100: "#f3f4f6",
     grey400: "#9ca3af",
@@ -19,3 +22,5 @@ export const colors = {
     grey800: "#1f2937",
     grey900: "#111827",
 }
+
+export default colors;

@@ -1,7 +1,7 @@
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState } from 'react';
 import styled from 'styled-components';
-import { colors } from '../../design';
+import colors from '../../design';
 
 type SelectProps = {
     label: string,

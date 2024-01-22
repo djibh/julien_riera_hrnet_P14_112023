@@ -11,12 +11,11 @@ import { DataGrid, GridToolbarQuickFilter } from '@mui/x-data-grid';
 import { columns } from './EmployeeTableConfig'
 import Header from '../header/Header'
 import styled from 'styled-components';
-import { colors } from '../../design';
 import { useContext, useEffect } from 'react';
 import EmployeeContext from '../../context/EmployeeContext';
 import { getEmployees } from '../../api/EmployeeService'
 import { AxiosResponse } from 'axios';
-import { Employee } from '../../shared/lib/types';
+import { Employee } from '@/types';
 
 // This function is used to show the built-in search field of the MUI datagrid.
 function QuickSearchToolbar() {
@@ -60,9 +59,8 @@ export default function EmployeeTable() {
 }
 
 const TableWrapperStyled = styled.div`
-    max-width: 1400px;
+    max-width: 1100px;
     margin: auto;
-    text-align: center;
     padding-inline: 0.5em;
     padding-bottom: 3em;
 
@@ -84,7 +82,8 @@ const TableWrapperStyled = styled.div`
       border: none;
       width: 100%;
       padding: 0.5em 1.5em;
-      background-color: ${colors.grey100};
+      background-color: white;
       border-radius: 10px;
+      box-shadow: 0px 1px 3px 1px #ccc;
     }
 `;

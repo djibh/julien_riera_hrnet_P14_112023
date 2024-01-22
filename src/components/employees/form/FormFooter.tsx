@@ -5,7 +5,7 @@
  */
 
 import { styled } from 'styled-components'
-import { colors } from "../../../design";
+import colors from "../../../design";
 import { useContext } from 'react';
 import EmployeeContext from '../../../context/EmployeeContext';
 
@@ -31,13 +31,15 @@ const FormFooterStyled = styled.div`
     gap: 6em;
 
     button {
-        border-radius: 25px;
+        padding: 10px;
         font-size: 1rem;
+        min-width: 120px;
+        border-radius: 5px;
+        font-weight: 700;
+        border: none;
     }
 
     #cancel-btn {
-        border: none;
-        font-weight: 700;
         color: ${colors.grey400};
         
         &:hover {
@@ -46,14 +48,11 @@ const FormFooterStyled = styled.div`
     }
     
     #submit-btn {
-        padding: 0.5em 1em;
-        background-color: ${colors.blue500};
-        border: none;
-        font-weight: 700;
+        background-color: ${colors.submitButton};
         color: white;
 
         &:hover {
-            background-color: ${colors.blue600};
+            background-color: ${colors.submitButtonHover};
         }
     }
 `;

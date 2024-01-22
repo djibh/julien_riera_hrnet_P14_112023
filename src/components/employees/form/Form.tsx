@@ -13,7 +13,7 @@ import FormBody from './FormBody';
 import FormFooter from './FormFooter';
 import { successNotification, errorNotification } from '../../reusable/Toasts'
 import EmployeeContext from "../../../context/EmployeeContext";
-import { colors } from "../../../design";
+import colors from "../../../design";
 import { cleanFormOnSuccess, createFormEmployee } from './FormConfig'
 
 export default function Form() {

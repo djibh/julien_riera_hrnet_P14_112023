@@ -13,7 +13,7 @@ import DatePicker  from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { departments, states } from './FormConfig'
 import styled from "styled-components";
-import { colors } from "../../../design";
+import colors from "../../../design";
 import { SetStateAction } from "react";
 
 type FormBodyProps = {

@@ -31,10 +31,7 @@ body {
   margin: 0;
   min-height: 100vh;
   /* background pattern */
-  background-color: #353535;
-  opacity: 0.8;
-  background-size: 15px 15px;
-  background-image: repeating-linear-gradient(45deg, #313131 0, #313131 1px, #353535 0, #353535 50%);
+  background-color: #ede3e4ff;
 }
 
 main {

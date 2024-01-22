@@ -5,38 +5,41 @@
  */
 
 import styled from "styled-components";
+import colors from "../../design";
 
 export default function Navbar() {
   return (
     <HeaderStyled>
-        <nav>
-            <img src="/logo.png" alt="Logo de la société Wealth Health" className="logo"/>
-            <div className='page-title'>HRnet</div>
+          <nav>
+            <img src="/logo2.png" alt="Logo de la société Wealth Health" className="navbar__logo"/>
+            <img src="https://api.dicebear.com/7.x/thumbs/svg?seed=Callie&scale=80&radius=50" className="navbar__avatar" alt="avatar" />
           </nav>
     </HeaderStyled>
   )
 }
 
 const HeaderStyled = styled.header`
+    height: 15vh;
+    display: grid;
+    place-items: center;
     background: white;
-    border-bottom: 5px solid hsl(70.625, 48.9795918367347%, 38.431372549019606%);
-    padding: 1.2em 0.5em;
+    box-shadow: 0px 0px 3px 0px ${colors.primary};
 
     nav {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        min-width: 90%;
         max-width: 1400px;
         margin: 0 auto;
 
-        .logo {
-            max-width: 70px;
+        .navbar__logo {
+            max-width: 50px;
         }
-
-        .page-title {
-            font-size: 1.7rem;
-            font-weight: bold;
-            color: #444;
+        .navbar__avatar {
+            max-width: 50px;
+            padding: 5px;
+            border-radius: 50%;
         }
     }
 `;
