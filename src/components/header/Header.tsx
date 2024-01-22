@@ -28,15 +28,15 @@ const HeaderStyled = styled.header`
     flex: 1;
 
     h1 {
-      font-size: 1.8rem;
-      color: ${colors.primary};
+      font-size: 1.6rem;
+      color: ${colors.black};
       margin-bottom: 0;
     }
 
     h2 {
       font-size: 0.9rem;
       margin-top: 5px;
-      color: ${colors.grey400};
+      color: ${colors.cadetGray};
     }
   }
   

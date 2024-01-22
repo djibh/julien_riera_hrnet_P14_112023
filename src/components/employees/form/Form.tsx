@@ -28,7 +28,7 @@ const formRef = useRef<HTMLFormElement>(null);
 
 const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => { 
     e.preventDefault()
-    const requiredFields = ['firstName', 'lastName', 'street', 'city', 'zipCode'];
+    const requiredFields = ['firstName', 'lastName', 'street', 'city', 'postalCode'];
     
     //Typescript req - check if element is a form
     if (!e.target || !(e.target instanceof HTMLFormElement)) {
@@ -80,8 +80,8 @@ const FormStyled = styled.form`
     min-width: 500px;
     max-height: 95svh;
     background-color: ${colors.grey050};
-    color: ${colors.grey800};
+    color: ${colors.black};
     border-radius: 10px;
-    box-shadow: 0px 6px 10px -3px ${colors.grey500};
+    box-shadow: 0px 6px 10px -3px ${colors.cadetGray};
     overflow-y: scroll;   
 `;

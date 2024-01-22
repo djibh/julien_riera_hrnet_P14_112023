@@ -74,7 +74,11 @@ const LayoutStyle = styled.div`
     width: 200px;
     padding-left: 1.2em;
     min-height: 90vh;
-    background-color: ${colors.primary};
+    background-color: ${colors.yinmnBlue};
+
+    h2 {
+      font-family: Arial black;
+    }
 
     &-items {
       display: flex;
@@ -83,7 +87,7 @@ const LayoutStyle = styled.div`
 
       &__btn {
         display: flex;
-        gap: 10px;
+        gap: 1em;
       }
     }
   }

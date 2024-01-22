@@ -40,7 +40,7 @@ const FormFooterStyled = styled.div`
     }
 
     #cancel-btn {
-        color: ${colors.grey400};
+        color: ${colors.verdigris};
         
         &:hover {
             color: ${colors.grey500};

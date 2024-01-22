@@ -12,7 +12,7 @@ const initialEmployees: Employee[] = [
     street: '123 Roundhouse Kick Lane',
     city: 'Walker',
     state: 'TX',
-    zipCode: 75000,
+    postalCode: 75000,
   },
   {
     id: uuidv4(),
@@ -24,7 +24,7 @@ const initialEmployees: Employee[] = [
     street: '742 Evergreen Terrace',
     city: 'Springfield',
     state: 'IL',
-    zipCode: 62701,
+    postalCode: 62701,
   },
   {
     id: uuidv4(),
@@ -36,7 +36,7 @@ const initialEmployees: Employee[] = [
     street: '4 Privet Drive',
     city: 'Little Whinging',
     state: 'AR',
-    zipCode: 10000,
+    postalCode: 10000,
   },
   {
     id: uuidv4(),
@@ -48,7 +48,7 @@ const initialEmployees: Employee[] = [
     street: '221B Baker Street',
     city: 'London',
     state: 'MD',
-    zipCode: 99999,
+    postalCode: 99999,
   },
   {
     id: uuidv4(),
@@ -60,7 +60,7 @@ const initialEmployees: Employee[] = [
     street: 'Walt Disney World',
     city: 'Orlando',
     state: 'FL',
-    zipCode: 32830,
+    postalCode: 32830,
   },
   {
     id: uuidv4(),
@@ -72,7 +72,7 @@ const initialEmployees: Employee[] = [
     street: 'Rocket Launchpad',
     city: 'Mars Colony',
     state: 'MA',
-    zipCode: 12345,
+    postalCode: 12345,
   },
   {
     id: uuidv4(),
@@ -84,7 +84,7 @@ const initialEmployees: Employee[] = [
     street: 'Death Star',
     city: 'Space',
     state: 'NH',
-    zipCode: 67889,
+    postalCode: 67889,
   },
   {
     id: uuidv4(),
@@ -96,7 +96,7 @@ const initialEmployees: Employee[] = [
     street: 'Themyscira Island',
     city: 'Paradise',
     state: 'CA',
-    zipCode: 88888,
+    postalCode: 88888,
   },
   {
     id: uuidv4(),
@@ -108,7 +108,7 @@ const initialEmployees: Employee[] = [
     street: 'Black Pearl Ship',
     city: 'Tortuga',
     state: 'HI',
-    zipCode: 55555,
+    postalCode: 55555,
   },
   {
     id: uuidv4(),
@@ -120,7 +120,7 @@ const initialEmployees: Employee[] = [
     street: 'Hundred Acre Wood',
     city: 'Ashdown Forest',
     state: 'GA',
-    zipCode: 77777,
+    postalCode: 77777,
   },
 ];
 

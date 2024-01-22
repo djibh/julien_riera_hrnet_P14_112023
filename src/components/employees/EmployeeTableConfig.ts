@@ -15,12 +15,12 @@ interface Column {
 
 export const columns: Column[] = [
   { field: 'id', headerName: 'ID', width: 60 },
-  { field: 'firstName', headerName: 'Prénom', width: 100 },
-  { field: 'lastName', headerName: 'Nom', width: 100 },
+  { field: 'firstName', headerName: 'Prénom', width: 120 },
+  { field: 'lastName', headerName: 'Nom', width: 120 },
   { field: 'startDate', headerName: 'Embauche', width: 100 },
-  { field: 'department', headerName: 'Service', width: 120 },
-  { field: 'birthDate', headerName: 'Date de naissance', width: 100 },
-  { field: 'street', headerName: 'Adresse', width: 120 },
-  { field: 'city', headerName: 'Ville', width: 110 },
-  { field: 'postalCode', headerName: 'Code postal', width: 80 }
+  { field: 'department', headerName: 'Service', width: 100 },
+  { field: 'birthDate', headerName: 'Date de naissance', width: 140 },
+  { field: 'street', headerName: 'Adresse', width: 150 },
+  { field: 'city', headerName: 'Ville', width: 120 },
+  { field: 'postalCode', headerName: 'Code postal', width: 100 }
 ];

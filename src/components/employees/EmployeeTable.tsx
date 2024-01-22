@@ -16,6 +16,7 @@ import EmployeeContext from '../../context/EmployeeContext';
 import { getEmployees } from '../../api/EmployeeService'
 import { AxiosResponse } from 'axios';
 import { Employee } from '@/types';
+import colors from '../../design';
 
 // This function is used to show the built-in search field of the MUI datagrid.
 function QuickSearchToolbar() {
@@ -82,8 +83,9 @@ const TableWrapperStyled = styled.div`
       border: none;
       width: 100%;
       padding: 0.5em 1.5em;
-      background-color: white;
+      /* background-color: white; */
+      background-color: ${colors.ghostWhite};
       border-radius: 10px;
-      box-shadow: 0px 1px 3px 1px #ccc;
+      box-shadow: 0px 1px 1px 1px #ccc;
     }
 `;

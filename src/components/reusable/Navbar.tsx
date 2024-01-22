@@ -19,8 +19,8 @@ export default function Navbar() {
 }
 
 const HeaderStyled = styled.header`
-    height: 10vh;
     display: grid;
+    height: 10vh;
     place-items: center;
     background: white;
     box-shadow: 0px 0px 3px 0px ${colors.primary};
@@ -39,7 +39,7 @@ const HeaderStyled = styled.header`
         .navbar__avatar {
             max-width: 50px;
             border-radius: 50%;
-            background-color: ${colors.lavenderBlush};
+            background-color: ${colors.lavender};
         }
     }
 `;

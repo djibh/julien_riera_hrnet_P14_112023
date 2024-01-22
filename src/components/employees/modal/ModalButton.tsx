@@ -32,8 +32,9 @@ const ButtonStyled = styled.button`
   font-size: 1em;
   font-weight: 600;
   gap: 10px;
-  background-color: ${colors.celadon};
-  box-shadow: 0px 1px 2px 1px #d1d1d1;
+  background-color: ${colors.lilac};
+  box-shadow: 0px 1px 1px 1px #ccc;
+  
 
   
   :first-child {
@@ -41,10 +42,9 @@ const ButtonStyled = styled.button`
   }
     
   &:hover {
-    color: ${colors.celadon};
-    background-color: white;
+    background-color: ${colors.glaucous};
   }
   &:active {
-    box-shadow: 0px 0px 2px 1px #d1d1d1 inset;
+    box-shadow: 0px 0px 2px 0px ${colors.yinmnBlue} inset;
   }
 `;
