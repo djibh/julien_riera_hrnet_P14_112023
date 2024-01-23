@@ -11,10 +11,10 @@
 import Select from "react-select";
 import DatePicker  from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { departments, states } from './FormConfig'
+import { departments } from './FormConfig'
 import styled from "styled-components";
-import colors from "../../../design";
 import { SetStateAction } from "react";
+import theme from "@/design/theme";
 
 type FormBodyProps = {
     startDate: Date,
@@ -27,23 +27,23 @@ type FormBodyProps = {
     setSelectedState: React.Dispatch<SetStateAction<{label: string, value: string}>>,
 }
 
-export default function FormBody({startDate, birthDate, selectedDepartment, selectedState, setSelectedDepartment, setSelectedState, setStartDate, setBirthDate}: FormBodyProps) {
+export default function FormBody({startDate, birthDate, selectedDepartment, setSelectedDepartment, setStartDate, setBirthDate}: FormBodyProps) {
   return (
     <FormBodyStyled className="form-body">
         <div className="flex">
-            <label htmlFor="firstName">First name</label>
+            <label htmlFor="firstName">Prénom</label>
             <input type="text" name="firstName" id="firstName" />
         </div>
         <div className="flex">
-            <label htmlFor="lastName">Last name</label>
+            <label htmlFor="lastName">Nom</label>
             <input type="text" name="lastName" id="lastName" />
         </div>
         <div className="flex">
-            <label htmlFor="startDate">Start date</label>
+            <label htmlFor="startDate">Embauche</label>
             <DatePicker className="datepicker" selected={startDate} id="startDate" dateFormat="dd/MM/yyyy" onChange={(date: Date) => {setStartDate(date)}} />
         </div>
         <div className="flex">
-            <label htmlFor="department">Department</label>
+            <label htmlFor="department">Service</label>
             <Select
                 className="select"
                 name="department"
@@ -58,34 +58,19 @@ export default function FormBody({startDate, birthDate, selectedDepartment, sele
             />
         </div>
         <div className="flex">
-            <label htmlFor="birthDate">Date of birth</label>
+            <label htmlFor="birthDate">Date de naissance</label>
             <DatePicker className="datepicker" id="birthDate" dateFormat="dd/MM/yyyy" selected={birthDate} onChange={(date: Date) => {setBirthDate(date)}} />
         </div>
         <div className="flex">
-            <label htmlFor="street">Street</label>
-            <input type="text" name="street" id="street" />
+            <label htmlFor="address">Adresse</label>
+            <input type="text" name="address" id="address" />
         </div>
         <div className="flex">
-            <label htmlFor="city">City</label>
+            <label htmlFor="city">Ville</label>
             <input type="text" name="city" id="city" />
         </div>
         <div className="flex">
-            <label htmlFor="state">State</label>
-            <Select
-                className="select"
-                name="state"
-                defaultValue={selectedState}
-                onChange={(newValue) => {
-                    if (newValue !== null) {
-                      setSelectedState(newValue);
-                    }
-                  }}
-                options={states}
-                inputId="state"
-            />
-        </div>
-        <div className="flex">
-            <label htmlFor="postalCode">Zip code</label>
+            <label htmlFor="postalCode">Code postal</label>
             <input type="text" name="postalCode" id="postalCode" />
         </div>
     </FormBodyStyled>
@@ -102,7 +87,7 @@ const FormBodyStyled = styled.div`
         label {
             font-size: 0.95rem;
             font-weight: 600;
-            color: ${colors.grey600};
+            color: ${theme.colors.grey600};
             font-family: 'IBM Plex Mono', sans-serif;
         }
 
@@ -115,10 +100,10 @@ const FormBodyStyled = styled.div`
             border: none;
             border-bottom: 2px solid #ddd;
             font-size: 1rem;
-            color: ${colors.grey700};
+            color: ${theme.colors.grey700};
 
             &:focus {
-                border-bottom: 2px solid ${colors.primary};
+                border-bottom: 2px solid ${theme.colors.primary};
                 outline: none;
             }
         }

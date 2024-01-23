@@ -7,7 +7,7 @@
 
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import styled from 'styled-components';
-import colors from '../../../design';
+import theme from '@/design/theme';
 
 type ModalButtonProps = {
     clickAction: React.MouseEventHandler<HTMLButtonElement>
@@ -32,7 +32,7 @@ const ButtonStyled = styled.button`
   font-size: 1em;
   font-weight: 600;
   gap: 10px;
-  background-color: ${colors.lilac};
+  background-color: ${theme.colors.lilac};
   box-shadow: 0px 1px 1px 1px #ccc;
   
 
@@ -42,9 +42,9 @@ const ButtonStyled = styled.button`
   }
     
   &:hover {
-    background-color: ${colors.glaucous};
+    background-color: ${theme.colors.glaucous};
   }
   &:active {
-    box-shadow: 0px 0px 2px 0px ${colors.yinmnBlue} inset;
+    box-shadow: 0px 0px 2px 0px ${theme.colors.yinmnBlue} inset;
   }
 `;

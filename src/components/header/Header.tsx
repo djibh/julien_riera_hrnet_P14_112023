@@ -4,9 +4,9 @@
  *  
  */
 
-import NewEmployeeModal from '../employees/modal/NewEmployeeModal';
+import NewEmployeeModal from '@/components/employees/modal/NewEmployeeModal';
 import styled from 'styled-components';
-import colors from '../../design'
+import theme from '@/design/theme';
 
 export default function Header() {
   return (
@@ -23,20 +23,21 @@ export default function Header() {
 const HeaderStyled = styled.header`
   display: flex;
   align-items: center;
+  margin-bottom: 1.5em;
 
   .title {
     flex: 1;
 
     h1 {
       font-size: 1.6rem;
-      color: ${colors.black};
+      color: ${theme.colors.black};
       margin-bottom: 0;
     }
 
     h2 {
       font-size: 0.9rem;
       margin-top: 5px;
-      color: ${colors.cadetGray};
+      color: ${theme.colors.cadetGray};
     }
   }
   

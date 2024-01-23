@@ -1,13 +1,13 @@
 import PeopleIcon from '@mui/icons-material/People';
 import HubIcon from '@mui/icons-material/Hub';
 import AssignmentIcon from '@mui/icons-material/Assignment';
-import EmployeesTable from '../components/employees/EmployeeTable';
+import EmployeesTable from '@/components/employees/EmployeeTable';
 import { useState } from 'react';
-import EmployeeContext from '../context/EmployeeContext';
+import EmployeeContext from '@/context/EmployeeContext';
 import { ToastContainer } from 'react-toastify';
-import initialEmployees from '../data/initialEmployees'
+import initialEmployees from '@/data/initialEmployees'
 import styled from 'styled-components';
-import colors from '../design';
+import theme from '@/design/theme';
 
 export default function Homepage() {
   const [employees, setEmployees] = useState(initialEmployees)
@@ -27,18 +27,18 @@ export default function Homepage() {
             <div className='sidebar'>
                 <h2>MATIME</h2>
               <div className='sidebar-items'>
-                <div className='sidebar-items__btn'>
+                <button className='sidebar-items__btn'>
                   <PeopleIcon />
                   <div>Employés</div>
-                </div>
-                <div className='sidebar-items__btn'>
+                </button>
+                <button className='sidebar-items__btn'>
                   <HubIcon />
                   <div>Services</div>
-                </div>
-                <div className='sidebar-items__btn'>
+                </button>
+                <button className='sidebar-items__btn'>
                   <AssignmentIcon />
                   <div>Services</div>
-                </div>
+                </button>
               </div>
             </div>
             <div className='content'>
@@ -71,28 +71,46 @@ const LayoutStyle = styled.div`
   }
 
   .sidebar {
-    width: 200px;
-    padding-left: 1.2em;
+    width: 15%;
+    min-width: 200px;
+    max-width: 400px;
     min-height: 90vh;
-    background-color: ${colors.yinmnBlue};
+    background-color: ${theme.colors.yinmnBlue};
 
     h2 {
+      margin-bottom: 1.5em;
       font-family: Arial black;
+      text-align: center;
     }
 
     &-items {
       display: flex;
       flex-direction: column;
       gap: 1.5em;
+      padding-left: 1.2em;
+
+      > :first-child {
+        background: rgba(255,255,255, 0.2);
+      }
 
       &__btn {
         display: flex;
-        gap: 1em;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 15px;
+        font-size: 1rem;
+        border-top-left-radius: 30px;
+        border-bottom-left-radius: 30px;
+        
+        &:hover {
+          background: rgba(255,255,255, 0.2);
+        }
       }
     }
   }
 
   .content {
     flex: 1;
+    padding-inline: 2em;
   }
 `;

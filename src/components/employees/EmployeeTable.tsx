@@ -12,11 +12,11 @@ import { columns } from './EmployeeTableConfig'
 import Header from '../header/Header'
 import styled from 'styled-components';
 import { useContext, useEffect } from 'react';
-import EmployeeContext from '../../context/EmployeeContext';
-import { getEmployees } from '../../api/EmployeeService'
+import EmployeeContext from '@/context/EmployeeContext';
+import { getEmployees } from '@/api/EmployeeService'
 import { AxiosResponse } from 'axios';
 import { Employee } from '@/types';
-import colors from '../../design';
+import theme from '@/design/theme';
 
 // This function is used to show the built-in search field of the MUI datagrid.
 function QuickSearchToolbar() {
@@ -60,9 +60,8 @@ export default function EmployeeTable() {
 }
 
 const TableWrapperStyled = styled.div`
-    max-width: 1100px;
+    max-width: 1200px;
     margin: auto;
-    padding-inline: 0.5em;
     padding-bottom: 3em;
 
     th, td {
@@ -84,7 +83,7 @@ const TableWrapperStyled = styled.div`
       width: 100%;
       padding: 0.5em 1.5em;
       /* background-color: white; */
-      background-color: ${colors.ghostWhite};
+      background-color: ${theme.colors.ghostWhite};
       border-radius: 10px;
       box-shadow: 0px 1px 1px 1px #ccc;
     }

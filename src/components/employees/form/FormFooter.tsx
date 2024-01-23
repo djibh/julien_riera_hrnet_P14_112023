@@ -5,9 +5,9 @@
  */
 
 import { styled } from 'styled-components'
-import colors from "../../../design";
 import { useContext } from 'react';
-import EmployeeContext from '../../../context/EmployeeContext';
+import EmployeeContext from '@/context/EmployeeContext';
+import theme from '@/design/theme';
 
 export default function FormFooter() {
     const { setIsModalOpen } = useContext(EmployeeContext)
@@ -40,19 +40,19 @@ const FormFooterStyled = styled.div`
     }
 
     #cancel-btn {
-        color: ${colors.verdigris};
+        color: ${theme.colors.verdigris};
         
         &:hover {
-            color: ${colors.grey500};
+            color: ${theme.colors.grey500};
         }
     }
     
     #submit-btn {
-        background-color: ${colors.submitButton};
+        background-color: ${theme.colors.submitButton};
         color: white;
 
         &:hover {
-            background-color: ${colors.submitButtonHover};
+            background-color: ${theme.colors.submitButtonHover};
         }
     }
 `;

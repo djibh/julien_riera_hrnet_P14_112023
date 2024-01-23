@@ -5,7 +5,7 @@
  */
 
 import styled from "styled-components";
-import colors from "../../design";
+import theme from "@/design/theme";
 
 export default function Navbar() {
   return (
@@ -23,7 +23,7 @@ const HeaderStyled = styled.header`
     height: 10vh;
     place-items: center;
     background: white;
-    box-shadow: 0px 0px 3px 0px ${colors.primary};
+    box-shadow: 0px 0px 3px 0px ${theme.colors.primary};
 
     nav {
         display: flex;
@@ -39,7 +39,7 @@ const HeaderStyled = styled.header`
         .navbar__avatar {
             max-width: 50px;
             border-radius: 50%;
-            background-color: ${colors.lavender};
+            background-color: ${theme.colors.lavender};
         }
     }
 `;

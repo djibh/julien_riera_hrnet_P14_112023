@@ -1,4 +1,4 @@
-export type IUser = {
+export type User = {
     id: string;
     name: string;
     username: string;
@@ -6,14 +6,13 @@ export type IUser = {
 };
 
 export type Employee = {
-    id: string,
+    id?: string,
     firstName: string,
     lastName: string,
     startDate: string,
     department: string,
     birthDate: string,
-    street: string,
+    address: string,
     city: string,
-    state: string,
     postalCode: number,
 }

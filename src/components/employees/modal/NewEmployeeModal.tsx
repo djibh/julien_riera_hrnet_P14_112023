@@ -10,7 +10,7 @@ import Modal from 'simpl-modal';
 import ModalButton from './ModalButton';
 import { useContext } from 'react';
 import Form from '../form/Form';
-import EmployeeContext from '../../../context/EmployeeContext';
+import EmployeeContext from '@/context/EmployeeContext';
 
 export default function NewEmployeeModal() {
   const { isModalOpen, setIsModalOpen } = useContext(EmployeeContext)

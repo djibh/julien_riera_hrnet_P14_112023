@@ -11,10 +11,11 @@ import styled from "styled-components";
 import FormHeader from './FormHeader';
 import FormBody from './FormBody';
 import FormFooter from './FormFooter';
-import { successNotification, errorNotification } from '../../reusable/Toasts'
-import EmployeeContext from "../../../context/EmployeeContext";
-import colors from "../../../design";
+import { successNotification, errorNotification } from '@/components/reusable/Toasts'
+import EmployeeContext from "@/context/EmployeeContext";
 import { cleanFormOnSuccess, createFormEmployee } from './FormConfig'
+import { saveEmployee } from "@/api/EmployeeService"
+import theme from "@/design/theme";
 
 export default function Form() {
 const date = new Date() 
@@ -26,9 +27,9 @@ const { employees, setEmployees, setIsModalOpen } = useContext(EmployeeContext)
 
 const formRef = useRef<HTMLFormElement>(null);
 
-const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => { 
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => { 
     e.preventDefault()
-    const requiredFields = ['firstName', 'lastName', 'street', 'city', 'postalCode'];
+    const requiredFields = ['firstName', 'lastName', 'address', 'city', 'postalCode'];
     
     //Typescript req - check if element is a form
     if (!e.target || !(e.target instanceof HTMLFormElement)) {
@@ -44,13 +45,16 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     }
 
     //Create employee from form data and add to table
-    const newEmployee = createFormEmployee(formElement, startDate, selectedDepartment, birthDate, selectedState)
+    const formEmployee = createFormEmployee(formElement, startDate, selectedDepartment, birthDate)
+    
+    //Clear form upon success submission, close modal and display success notification
+    const newEmployeeResponse = await saveEmployee(formEmployee)
+    const newEmployee = newEmployeeResponse.data.user;
     const newList = [...employees, newEmployee]
     setEmployees(newList)
-
-    //Clear form upon success submission, close modal and display success notification
-    cleanFormOnSuccess(formRef, setBirthDate, setStartDate, setSelectedDepartment, setSelectedState)
+    
     setIsModalOpen(false)
+    cleanFormOnSuccess(formRef, setBirthDate, setStartDate, setSelectedDepartment, setSelectedState)
     successNotification()
  }
 
@@ -79,9 +83,9 @@ const FormStyled = styled.form`
     padding: 2em 3em;
     min-width: 500px;
     max-height: 95svh;
-    background-color: ${colors.grey050};
-    color: ${colors.black};
+    background-color: ${theme.colors.grey050};
+    color: ${theme.colors.black};
     border-radius: 10px;
-    box-shadow: 0px 6px 10px -3px ${colors.cadetGray};
+    box-shadow: 0px 6px 10px -3px ${theme. colors.cadetGray};
     overflow-y: scroll;   
 `;
