@@ -6,11 +6,11 @@
 
 import { styled } from 'styled-components'
 import { useContext } from 'react';
-import EmployeeContext from '@/context/EmployeeContext';
+import PatientContext from '@/context/PatientContext';
 import theme from '@/design/theme';
 
 export default function FormFooter() {
-    const { setIsModalOpen } = useContext(EmployeeContext)
+    const { setIsModalOpen } = useContext(PatientContext)
 
     const cancelActionOnClick= (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
@@ -19,8 +19,8 @@ export default function FormFooter() {
 
     return (
         <FormFooterStyled className="form-footer">
-            <button id="cancel-btn" type="button" aria-label="Cancel new employee creation" onClick={cancelActionOnClick}>Cancel</button>
-            <button id="submit-btn" type="submit" aria-label='Confirm new employee creation'>Create</button>
+            <button id="cancel-btn" type="button" aria-label="Cancel new Patient creation" onClick={cancelActionOnClick}>Cancel</button>
+            <button id="submit-btn" type="submit" aria-label='Confirm new Patient creation'>Create</button>
         </FormFooterStyled>
     )
 }

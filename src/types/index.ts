@@ -5,11 +5,11 @@ export type User = {
     email: string;
 };
 
-export type Employee = {
+export type Patient = {
     id?: string,
     firstName: string,
     lastName: string,
-    startDate: string,
+    admissionDate: string,
     department: string,
     birthDate: string,
     address: string,

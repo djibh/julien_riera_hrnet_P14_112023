@@ -1,4 +1,4 @@
-/* NewEmployeeModal.tsx - Component
+/* NewPatientModal.tsx - Component
  *
  * This component is used to build the UI button show to call the modal. Once mounted, the modal will have a Form component as its child.
  * A context is used to handle the open/close state of the modal itself. 
@@ -10,22 +10,22 @@ import Modal from 'simpl-modal';
 import ModalButton from './ModalButton';
 import { useContext } from 'react';
 import Form from '../form/Form';
-import EmployeeContext from '@/context/EmployeeContext';
+import PatientContext from '@/context/PatientContext';
 
-export default function NewEmployeeModal() {
-  const { isModalOpen, setIsModalOpen } = useContext(EmployeeContext)
+export default function NewPatientModal() {
+  const { isModalOpen, setIsModalOpen } = useContext(PatientContext)
   
   return (
-    <NewEmployeeModalStyled>
+    <NewPatientModalStyled>
         <ModalButton clickAction={() => setIsModalOpen(true)}/>
         <Modal isOpen={isModalOpen} setIsOpen={setIsModalOpen} theme='neutral' animated>
           <Form />
         </Modal>
-    </NewEmployeeModalStyled>
+    </NewPatientModalStyled>
   )
 }
 
-const NewEmployeeModalStyled = styled.div`
+const NewPatientModalStyled = styled.div`
     display: flex;
     align-items: center;
 `;

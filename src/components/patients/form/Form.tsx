@@ -1,6 +1,6 @@
 /* Form.tsx - Component
  *
- * This component is used to build the form UI and holds the general logic need to add a new employee to the list.
+ * This component is used to build the form UI and holds the general logic need to add a new Patient to the list.
  * 
  * A config file is used to provide a few helper functions and the dropdowns (department / state) select items.
  * 
@@ -12,18 +12,18 @@ import FormHeader from './FormHeader';
 import FormBody from './FormBody';
 import FormFooter from './FormFooter';
 import { successNotification, errorNotification } from '@/components/reusable/Toasts'
-import EmployeeContext from "@/context/EmployeeContext";
-import { cleanFormOnSuccess, createFormEmployee } from './FormConfig'
-import { saveEmployee } from "@/api/EmployeeService"
+import PatientContext from "@/context/PatientContext";
+import { cleanFormOnSuccess, createFormPatient } from './FormConfig'
+import { savePatient } from "../../../api/PatientService"
 import theme from "@/design/theme";
 
 export default function Form() {
 const date = new Date() 
-const [startDate, setStartDate] = useState(date)
+const [admissionDate, setAdmissionDate] = useState(date)
 const [birthDate, setBirthDate] = useState(date)
 const [selectedDepartment, setSelectedDepartment] = useState({ value: '', label: 'Select' });
 const [selectedState, setSelectedState] = useState({ value: '', label: 'Select' });
-const { employees, setEmployees, setIsModalOpen } = useContext(EmployeeContext) 
+const { Patients, setPatients, setIsModalOpen } = useContext(PatientContext) 
 
 const formRef = useRef<HTMLFormElement>(null);
 
@@ -44,17 +44,17 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         return;
     }
 
-    //Create employee from form data and add to table
-    const formEmployee = createFormEmployee(formElement, startDate, selectedDepartment, birthDate)
+    //Create Patient from form data and add to table
+    const formPatient = createFormPatient(formElement, admissionDate, selectedDepartment, birthDate)
     
     //Clear form upon success submission, close modal and display success notification
-    const newEmployeeResponse = await saveEmployee(formEmployee)
-    const newEmployee = newEmployeeResponse.data.user;
-    const newList = [...employees, newEmployee]
-    setEmployees(newList)
+    const newPatientResponse = await savePatient(formPatient)
+    const newPatient = newPatientResponse.data.user;
+    const newList = [...Patients, newPatient]
+    setPatients(newList)
     
     setIsModalOpen(false)
-    cleanFormOnSuccess(formRef, setBirthDate, setStartDate, setSelectedDepartment, setSelectedState)
+    cleanFormOnSuccess(formRef, setBirthDate, setAdmissionDate, setSelectedDepartment, setSelectedState)
     successNotification()
  }
 
@@ -62,12 +62,12 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     <FormStyled ref={formRef} onSubmit={handleSubmit}>
         <FormHeader />
         <FormBody 
-            startDate={startDate} 
+            admissionDate={admissionDate} 
             birthDate={birthDate} 
             selectedDepartment={selectedDepartment} 
             selectedState={selectedState} 
             setBirthDate={setBirthDate} 
-            setStartDate={setStartDate} 
+            setAdmissionDate={setAdmissionDate} 
             setSelectedDepartment={setSelectedDepartment} 
             setSelectedState={setSelectedState}/>
         <FormFooter />

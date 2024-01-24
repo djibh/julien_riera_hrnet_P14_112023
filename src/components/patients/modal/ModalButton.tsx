@@ -1,6 +1,6 @@
 /* ModalButton.tsx - Component
  *
- * This component is a custom button specifically built to show the NewEmployeeModal component.
+ * This component is a custom button specifically built to show the NewPatientModal component.
  * It takes one function as a property. In this case, a setter to show the modal.
  *  
  */
@@ -15,7 +15,7 @@ type ModalButtonProps = {
 
 export default function ModalButton({ clickAction }: ModalButtonProps) {
   return (
-    <ButtonStyled onClick={clickAction} aria-label='Create new employee form'>
+    <ButtonStyled onClick={clickAction} aria-label='Create new Patient form'>
       <PersonAdd />
       <div>Ajouter</div>
     </ButtonStyled>

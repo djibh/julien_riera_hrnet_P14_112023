@@ -1,24 +1,24 @@
 import { useContext, useEffect } from "react";
-import EmployeeContext from '../context/EmployeeContext';
+import PatientContext from '@/context/PatientContext';
 
-export default function useEmployees() {
-  const { setEmployees } = useContext(EmployeeContext)
+export default function usePatients() {
+  const { setPatients } = useContext(PatientContext)
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/employees');
+        const response = await fetch('http://localhost:5000/api/Patients');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const result = await response.json();
-        setEmployees(result);
+        setPatients(result);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
 
     fetchData();
-  }, [setEmployees]);
+  }, [setPatients]);
 }
 

@@ -5,18 +5,18 @@
  */
 
 import { Dispatch, RefObject, SetStateAction } from "react"
-import { Employee } from "@/types";
+import { Patient } from "@/types";
 
-export const createFormEmployee = (
+export const createFormPatient = (
     formElement: HTMLFormElement,
-    startDate: Date,
+    admissionDate: Date,
     selectedDepartment: { value: string, label: string },
     birthDate: Date,
-): Employee => {
+): Patient => {
     return {
         firstName: formElement.firstName.value,
         lastName: formElement.lastName.value,
-        startDate: startDate.toLocaleDateString("fr"),
+        admissionDate: admissionDate.toLocaleDateString("fr"),
         department: selectedDepartment.value,
         birthDate: birthDate.toLocaleDateString("fr"),
         address: formElement.address.value,
@@ -28,14 +28,14 @@ export const createFormEmployee = (
 export const cleanFormOnSuccess = (
     ref: RefObject<HTMLFormElement>,
     setBirthDate: Dispatch<SetStateAction<Date>>,
-    setStartDate: Dispatch<SetStateAction<Date>>,
+    setAdmissionDate: Dispatch<SetStateAction<Date>>,
     setSelectedDepartment: Dispatch<SetStateAction<{ value: string, label: string }>>,
     setSelectedState: Dispatch<SetStateAction<{ value: string, label: string }>>) => {
     const date = new Date()
     if (ref.current) {
         ref.current.reset()
         setBirthDate(date)
-        setStartDate(date)
+        setAdmissionDate(date)
         setSelectedDepartment({ value: '', label: 'Select' })
         setSelectedState({ value: '', label: 'Select' })
     }

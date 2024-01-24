@@ -1,4 +1,4 @@
-/* EmployeesTable.tsx - Component
+/* PatientsTable.tsx - Component
  *
  * This component is built using Material UI grid component. It provides all of the features needed from the previous version of the site.
  * e.g. - global search, column filter, sorting...
@@ -8,14 +8,14 @@
  */
 
 import { DataGrid, GridToolbarQuickFilter } from '@mui/x-data-grid';
-import { columns } from './EmployeeTableConfig'
+import { columns } from './PatientTableConfig'
 import Header from '../header/Header'
 import styled from 'styled-components';
 import { useContext, useEffect } from 'react';
-import EmployeeContext from '@/context/EmployeeContext';
-import { getEmployees } from '@/api/EmployeeService'
+import PatientContext from '@/context/PatientContext';
+import { getPatients } from '@/api/PatientService'
 import { AxiosResponse } from 'axios';
-import { Employee } from '@/types';
+import { Patient } from '@/types';
 import theme from '@/design/theme';
 
 // This function is used to show the built-in search field of the MUI datagrid.
@@ -27,17 +27,17 @@ function QuickSearchToolbar() {
   );
 }
 
-export default function EmployeeTable() {
-  const { employees, setEmployees } = useContext(EmployeeContext)
+export default function PatientTable() {
+  const { Patients, setPatients } = useContext(PatientContext)
 
   useEffect(() => {
-    const fetchEmployees = async () => {
-      const response: AxiosResponse<Employee[]> = await getEmployees()
-      setEmployees(response.data)
+    const fetchPatients = async () => {
+      const response: AxiosResponse<Patient[]> = await getPatients()
+      setPatients(response.data)
     }
-    fetchEmployees()
+    fetchPatients()
       .catch(console.error)    
-  }, [setEmployees])
+  }, [setPatients])
 
     return (
       <TableWrapperStyled className='wrapper'>
@@ -46,7 +46,7 @@ export default function EmployeeTable() {
           className='datatable'
           slots={{toolbar: QuickSearchToolbar}}
           key={Math.random()*100*4}
-          rows={employees}
+          rows={Patients}
           columns={columns}
           initialState={{
             pagination: {

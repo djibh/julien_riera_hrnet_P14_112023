@@ -1,12 +1,12 @@
 import { v4 as uuidv4 } from 'uuid';
-import { Employee } from '@/types';
+import { Patient } from '@/types';
 
-const initialEmployees: Employee[] = [
+const initialPatients: Patient[] = [
   {
     id: uuidv4(),
     firstName: 'Chuck',
     lastName: 'Norris',
-    startDate: '01/01/2000',
+    admissionDate: '01/01/2000',
     department: 'Legal',
     birthDate: '03/10/1940',
     address: '123 Roundhouse Kick Lane',
@@ -17,7 +17,7 @@ const initialEmployees: Employee[] = [
     id: uuidv4(),
     firstName: 'Homer',
     lastName: 'Simpson',
-    startDate: '15/04/1987',
+    admissionDate: '15/04/1987',
     department: 'Engineering',
     birthDate: '12/05/1956',
     address: '742 Evergreen Terrace',
@@ -28,7 +28,7 @@ const initialEmployees: Employee[] = [
     id: uuidv4(),
     firstName: 'Harry',
     lastName: 'Potterhead',
-    startDate: '01/09/1991',
+    admissionDate: '01/09/1991',
     department: 'Marketing',
     birthDate: '31/07/1980',
     address: '4 Privet Drive',
@@ -39,7 +39,7 @@ const initialEmployees: Employee[] = [
     id: uuidv4(),
     firstName: 'Sherlock',
     lastName: 'Holmeslice',
-    startDate: '01/01/1887',
+    admissionDate: '01/01/1887',
     department: 'Legal',
     birthDate: '06/01/1854',
     address: '221B Baker Street',
@@ -50,7 +50,7 @@ const initialEmployees: Employee[] = [
     id: uuidv4(),
     firstName: 'Mickey',
     lastName: 'Mouseketeer',
-    startDate: '18/11/1928',
+    admissionDate: '18/11/1928',
     department: 'Sales',
     birthDate: '18/11/1928',
     address: 'Walt Disney World',
@@ -61,7 +61,7 @@ const initialEmployees: Employee[] = [
     id: uuidv4(),
     firstName: 'Elon',
     lastName: 'Mars',
-    startDate: '06/06/2002',
+    admissionDate: '06/06/2002',
     department: 'Engineering',
     birthDate: '28/06/1971',
     address: 'Rocket Launchpad',
@@ -72,7 +72,7 @@ const initialEmployees: Employee[] = [
     id: uuidv4(),
     firstName: 'Darth',
     lastName: 'Vaderade',
-    startDate: '04/05/1977',
+    admissionDate: '04/05/1977',
     department: 'Human Resources',
     birthDate: '41 BBY',
     address: 'Death Star',
@@ -83,7 +83,7 @@ const initialEmployees: Employee[] = [
     id: uuidv4(),
     firstName: 'Wonder',
     lastName: 'Womanizer',
-    startDate: '25/10/1941',
+    admissionDate: '25/10/1941',
     department: 'Legal',
     birthDate: '17/12/1937',
     address: 'Themyscira Island',
@@ -94,7 +94,7 @@ const initialEmployees: Employee[] = [
     id: uuidv4(),
     firstName: 'Jack',
     lastName: 'Sparrowdoughnut',
-    startDate: '09/07/2003',
+    admissionDate: '09/07/2003',
     department: 'Human Resources',
     birthDate: '13/06/1965',
     address: 'Black Pearl Ship',
@@ -105,7 +105,7 @@ const initialEmployees: Employee[] = [
     id: uuidv4(),
     firstName: 'Winnie',
     lastName: 'the Pooh-Pooh',
-    startDate: '14/10/1926',
+    admissionDate: '14/10/1926',
     department: 'Marketing',
     birthDate: '14/10/1926',
     address: 'Hundred Acre Wood',
@@ -114,4 +114,4 @@ const initialEmployees: Employee[] = [
   },
 ];
 
-export default initialEmployees;
+export default initialPatients;

@@ -10,7 +10,7 @@ export default function FormHeader() {
   return (
     <FormHeaderStyled>
         <img src="/logo2.png" alt="Logo de la société Wealth Health" className="logo"/>
-        <h2>Create employee</h2>
+        <h2>Create Patient</h2>
     </FormHeaderStyled>
   )
 }

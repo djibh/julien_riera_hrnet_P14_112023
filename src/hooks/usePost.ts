@@ -1,15 +1,15 @@
-import { Employee } from "../types";
-import useEmployees from "./useEmployees";
+import { Patient } from "../types";
+import usePatients from "./usePatients";
 
 export default function usePost() {
-    const postEmployee = async (employee: Employee) => {
+    const postPatient = async (Patient: Patient) => {
         try {
-            const response = await fetch('http://localhost:5000/api/employee', {
+            const response = await fetch('http://localhost:5000/api/Patient', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(employee),
+                body: JSON.stringify(Patient),
             });
 
             if (!response.ok) {
@@ -18,11 +18,11 @@ export default function usePost() {
 
             const result = await response.json();
             console.log('POST response:', result);
-            useEmployees
+            usePatients
         } catch (error) {
             console.error('Error submitting form:', error);
         }
     }
 
-    return { postEmployee }
+    return { postPatient }
 }

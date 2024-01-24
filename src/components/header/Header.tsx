@@ -1,10 +1,10 @@
 /* Header.tsx - Component
  *
- * This component is used to display main title of the Employees page and build the NewEmployeeModal component.
+ * This component is used to display main title of the Patients page and build the NewPatientModal component.
  *  
  */
 
-import NewEmployeeModal from '@/components/employees/modal/NewEmployeeModal';
+import NewPatientModal from '@/components/Patients/modal/NewPatientModal';
 import styled from 'styled-components';
 import theme from '@/design/theme';
 
@@ -12,10 +12,10 @@ export default function Header() {
   return (
     <HeaderStyled>
       <div className='title'>
-        <h1>Employés (1)</h1>
-        <h2>Liste des employés actuellement enregistrés</h2>
+        <h1>Patients (1)</h1>
+        <h2>Liste des Patients actuellement enregistrés</h2>
       </div>
-      <NewEmployeeModal />
+      <NewPatientModal />
     </HeaderStyled>
   )
 }

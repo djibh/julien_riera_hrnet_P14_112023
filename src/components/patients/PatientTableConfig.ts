@@ -1,12 +1,12 @@
-/* EmployeeTableConfig.ts
+/* PatientTableConfig.ts
  *
- * This file provides the configuration for the general structure of the EmployeesTable component.
+ * This file provides the configuration for the general structure of the PatientsTable component.
  *  
  */
 
 
 interface Column {
-  field: 'id' | 'firstName' | 'lastName' | 'startDate' | 'department' | 'birthDate' | 'address' | 'city' | 'postalCode';
+  field: 'id' | 'firstName' | 'lastName' | 'admissionDate' | 'department' | 'birthDate' | 'address' | 'city' | 'postalCode';
   headerName: string;
   width?: number;
   align?: 'right';
@@ -17,7 +17,7 @@ export const columns: Column[] = [
   { field: 'id', headerName: 'ID', width: 60 },
   { field: 'firstName', headerName: 'Prénom', width: 140 },
   { field: 'lastName', headerName: 'Nom', width: 140 },
-  { field: 'startDate', headerName: 'Embauche', width: 110 },
+  { field: 'admissionDate', headerName: 'Admission', width: 110 },
   { field: 'department', headerName: 'Service', width: 140 },
   { field: 'birthDate', headerName: 'Date de naissance', width: 140 },
   { field: 'address', headerName: 'Adresse', width: 180 },

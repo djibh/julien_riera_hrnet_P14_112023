@@ -17,17 +17,17 @@ import { SetStateAction } from "react";
 import theme from "@/design/theme";
 
 type FormBodyProps = {
-    startDate: Date,
+    admissionDate: Date,
     birthDate: Date,
     selectedDepartment: {label: string, value: string},
     selectedState: {label: string, value: string},
-    setStartDate: React.Dispatch<SetStateAction<Date>>,
+    setAdmissionDate: React.Dispatch<SetStateAction<Date>>,
     setBirthDate: React.Dispatch<SetStateAction<Date>>,
     setSelectedDepartment: React.Dispatch<SetStateAction<{label: string, value: string}>>,
     setSelectedState: React.Dispatch<SetStateAction<{label: string, value: string}>>,
 }
 
-export default function FormBody({startDate, birthDate, selectedDepartment, setSelectedDepartment, setStartDate, setBirthDate}: FormBodyProps) {
+export default function FormBody({admissionDate, birthDate, selectedDepartment, setSelectedDepartment, setAdmissionDate, setBirthDate}: FormBodyProps) {
   return (
     <FormBodyStyled className="form-body">
         <div className="flex">
@@ -39,8 +39,8 @@ export default function FormBody({startDate, birthDate, selectedDepartment, setS
             <input type="text" name="lastName" id="lastName" />
         </div>
         <div className="flex">
-            <label htmlFor="startDate">Embauche</label>
-            <DatePicker className="datepicker" selected={startDate} id="startDate" dateFormat="dd/MM/yyyy" onChange={(date: Date) => {setStartDate(date)}} />
+            <label htmlFor="admissionDate">Admission</label>
+            <DatePicker className="datepicker" selected={admissionDate} id="admissionDate" dateFormat="dd/MM/yyyy" onChange={(date: Date) => {setAdmissionDate(date)}} />
         </div>
         <div className="flex">
             <label htmlFor="department">Service</label>
