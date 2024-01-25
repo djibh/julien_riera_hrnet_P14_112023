@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import AuthLayout from "./layout/AuthLayout"
 import BaseLayout from "./layout/BaseLayout"
 import Homepage from "./pages/Homepage";
+import Services from "./pages/Services";
 import Login from "./pages/Login";
 import { ToastContainer } from "react-toastify";
 
@@ -18,7 +19,7 @@ const App = () => {
           {/* private routes */}
           <Route element={<BaseLayout />}>
             <Route index element={<Homepage />} />
-            {/* <Route path="/services" element={<AllUsers />} /> */}
+            <Route path="/services" element={<Services />} />
             {/* <Route path="/patient/:id/*" element={<Patient />} /> */}
           </Route>
         </Routes>

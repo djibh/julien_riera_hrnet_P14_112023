@@ -7,20 +7,21 @@ import PeopleIcon from '@mui/icons-material/People';
 import HubIcon from '@mui/icons-material/Hub';
 import styled from "styled-components";
 import theme from "@/design/theme";
+import { Link } from 'react-router-dom';
 
 export default function Sidebar() {
   return (
     <SidebarStyled>
         <h2>KLEPIOS</h2>
         <div className='sidebar-items'>
-          <button className='sidebar-items__btn'>
-            <PeopleIcon />
-            <div>Patients</div>
-          </button>
-          <button className='sidebar-items__btn'>
-            <HubIcon />
-            <div>Services</div>
-          </button>
+          <Link to="/" className='sidebar-items__btn'>
+              <PeopleIcon />
+              <div>Patients</div>
+          </Link>
+          <Link to="/services" className='sidebar-items__btn'>
+              <HubIcon />
+              <div>Services</div>
+          </Link>
         </div>
     </SidebarStyled>
   )
@@ -57,6 +58,7 @@ const SidebarStyled = styled.nav`
         font-size: 1rem;
         border-top-left-radius: 30px;
         border-bottom-left-radius: 30px;
+        color: white;
         
         &:hover {
           background: rgba(255,255,255, 0.2);
