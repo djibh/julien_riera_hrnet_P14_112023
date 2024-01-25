@@ -42,9 +42,13 @@ export const cleanFormOnSuccess = (
 }
 
 export const departments = [
-    { value: 'Sales', label: 'Sales' },
-    { value: 'Marketing', label: 'Marketing' },
-    { value: 'Engineering', label: 'Engineering' },
-    { value: 'Human resources', label: 'Human Resources' },
-    { value: 'Legal', label: 'Legal' },
+    { value: 'Rhumatologie', label: 'Rhumatologie' },
+    { value: 'Gériatrie', label: 'Gériatrie' },
+    { value: 'Ophtalmologie', label: 'Ophtalmologie' },
+    { value: 'Toxicologie', label: 'Toxicologie' },
+    { value: 'Pédiatrie', label: 'Pédiatrie' },
+    { value: 'Psychiatrie', label: 'Psychiatrie' },
+    { value: 'Bloc opératoire', label: 'Bloc opératoire' },
+    { value: 'Urgences adulte', label: 'Urgences adulte' },
+    { value: 'Pneumologie', label: 'Pneumologie' },
 ];

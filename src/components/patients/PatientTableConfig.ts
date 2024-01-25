@@ -15,8 +15,8 @@ interface Column {
 
 export const columns: Column[] = [
   { field: 'id', headerName: 'ID', width: 60 },
-  { field: 'firstName', headerName: 'Prénom', width: 140 },
-  { field: 'lastName', headerName: 'Nom', width: 140 },
+  { field: 'firstName', headerName: 'Prénom', width: 130 },
+  { field: 'lastName', headerName: 'Nom', width: 130 },
   { field: 'admissionDate', headerName: 'Admission', width: 110 },
   { field: 'department', headerName: 'Service', width: 140 },
   { field: 'birthDate', headerName: 'Date de naissance', width: 140 },

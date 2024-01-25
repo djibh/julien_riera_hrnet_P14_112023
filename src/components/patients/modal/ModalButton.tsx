@@ -34,8 +34,7 @@ const ButtonStyled = styled.button`
   gap: 10px;
   background-color: ${theme.colors.lilac};
   box-shadow: 0px 1px 1px 1px #ccc;
-  
-
+  transition: 300ms;
   
   :first-child {
     font-size: 1.3em;

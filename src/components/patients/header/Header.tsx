@@ -7,13 +7,18 @@
 import NewPatientModal from '@/components/Patients/modal/NewPatientModal';
 import styled from 'styled-components';
 import theme from '@/design/theme';
+import { Patient } from '@/types';
 
-export default function Header() {
+type HeaderProps = {
+  patients: Patient[]
+}
+
+export default function PatientsHeader({patients}: HeaderProps) {
   return (
     <HeaderStyled>
       <div className='title'>
-        <h1>Patients (1)</h1>
-        <h2>Liste des Patients actuellement enregistrés</h2>
+        <h1>Patients</h1>
+        <h2>Il y a actuellement {patients.length} patients enregistrés</h2>
       </div>
       <NewPatientModal />
     </HeaderStyled>
@@ -35,7 +40,7 @@ const HeaderStyled = styled.header`
     }
 
     h2 {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       margin-top: 5px;
       color: ${theme.colors.cadetGray};
     }

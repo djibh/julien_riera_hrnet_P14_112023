@@ -3,11 +3,10 @@
  * This component is currently used to show the company logo. Could be used to add navigation items too.
  *  
  */
-
 import styled from "styled-components";
 import theme from "@/design/theme";
 
-export default function Navbar() {
+export default function Header() {
   return (
     <HeaderStyled>
           <nav>

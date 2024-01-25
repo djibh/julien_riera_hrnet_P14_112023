@@ -16,3 +16,5 @@ export type Patient = {
     city: string,
     postalCode: number,
 }
+
+export type Patients = Patient[]

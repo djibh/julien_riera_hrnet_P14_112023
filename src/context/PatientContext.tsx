@@ -4,14 +4,14 @@ import { Patient } from "@/types"
 
 
 type ContextType = {
-    Patients: Patient[],
+    patients: Patient[],
     setPatients: React.Dispatch<React.SetStateAction<Patient[]>>,
     isModalOpen: boolean,
     setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>,
 }
 
 const InitialState = {
-    Patients: [],
+    patients: [],
     setPatients: () => [],
     isModalOpen: false,
     setIsModalOpen: () => { },

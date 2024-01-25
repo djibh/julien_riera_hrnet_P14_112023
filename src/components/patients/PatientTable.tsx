@@ -9,7 +9,7 @@
 
 import { DataGrid, GridToolbarQuickFilter } from '@mui/x-data-grid';
 import { columns } from './PatientTableConfig'
-import Header from '../header/Header'
+import Header from './header/Header'
 import styled from 'styled-components';
 import { useContext, useEffect } from 'react';
 import PatientContext from '@/context/PatientContext';
@@ -28,7 +28,7 @@ function QuickSearchToolbar() {
 }
 
 export default function PatientTable() {
-  const { Patients, setPatients } = useContext(PatientContext)
+  const { patients, setPatients } = useContext(PatientContext)
 
   useEffect(() => {
     const fetchPatients = async () => {
@@ -41,12 +41,12 @@ export default function PatientTable() {
 
     return (
       <TableWrapperStyled className='wrapper'>
-        <Header />
+        <Header patients={patients}/>
         <DataGrid
           className='datatable'
           slots={{toolbar: QuickSearchToolbar}}
           key={Math.random()*100*4}
-          rows={Patients}
+          rows={patients}
           columns={columns}
           initialState={{
             pagination: {

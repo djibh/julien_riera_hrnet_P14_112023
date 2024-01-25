@@ -40,7 +40,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         setIsLoading(true);
         try {
             // const currentAccount = await getCurrentUser();
-            const currentAccount = await INITIAL_USER; //FIXME - temporary
+            const currentAccount = INITIAL_USER; //FIXME - temporary
             if (currentAccount) {
                 setUser({
                     id: currentAccount.id,
