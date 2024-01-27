@@ -7,21 +7,21 @@ import PeopleIcon from '@mui/icons-material/People';
 import HubIcon from '@mui/icons-material/Hub';
 import styled from "styled-components";
 import theme from "@/design/theme";
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export default function Sidebar() {
   return (
     <SidebarStyled>
         <h2>KLEPIOS</h2>
         <div className='sidebar-items'>
-          <Link to="/" className='sidebar-items__btn'>
+          <NavLink to="/" className='sidebar-items__btn'>
               <PeopleIcon />
               <div>Patients</div>
-          </Link>
-          <Link to="/services" className='sidebar-items__btn'>
+          </NavLink>
+          <NavLink to="/services" className='sidebar-items__btn'>
               <HubIcon />
               <div>Services</div>
-          </Link>
+          </NavLink>
         </div>
     </SidebarStyled>
   )
@@ -33,6 +33,7 @@ const SidebarStyled = styled.nav`
     max-width: 400px;
     min-height: 90vh;
     background-color: ${theme.colors.yinmnBlue};
+    box-shadow: 0px 0px 15px 2px rgba(20,20,20, 0.2) inset;
 
     h2 {
       margin-bottom: 1.5em;
@@ -43,12 +44,8 @@ const SidebarStyled = styled.nav`
     .sidebar-items {
       display: flex;
       flex-direction: column;
-      gap: 1.5em;
+      gap: 1em;
       padding-left: 10%;
-
-      > :first-child {
-        background: rgba(255,255,255, 0.2);
-      }
 
       &__btn {
         display: flex;
@@ -59,9 +56,11 @@ const SidebarStyled = styled.nav`
         border-top-left-radius: 30px;
         border-bottom-left-radius: 30px;
         color: white;
+        transition: 180ms;
         
-        &:hover {
+        &:hover, &.active {
           background: rgba(255,255,255, 0.2);
+          box-shadow: 0px 1px 0px 0px ${theme.colors.fandango};
         }
       }
     }

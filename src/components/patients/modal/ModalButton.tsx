@@ -34,7 +34,7 @@ const ButtonStyled = styled.button`
   gap: 10px;
   background-color: ${theme.colors.lilac};
   box-shadow: 0px 1px 1px 1px #ccc;
-  transition: 300ms;
+  transition: 180ms;
   
   :first-child {
     font-size: 1.3em;
@@ -44,6 +44,6 @@ const ButtonStyled = styled.button`
     background-color: ${theme.colors.glaucous};
   }
   &:active {
-    box-shadow: 0px 0px 2px 0px ${theme.colors.yinmnBlue} inset;
+    box-shadow: 0px 0px 2px 1px ${theme.colors.yinmnBlue} inset;
   }
 `;

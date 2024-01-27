@@ -23,7 +23,7 @@ const [admissionDate, setAdmissionDate] = useState(date)
 const [birthDate, setBirthDate] = useState(date)
 const [selectedDepartment, setSelectedDepartment] = useState({ value: '', label: 'Select' });
 const [selectedState, setSelectedState] = useState({ value: '', label: 'Select' });
-const { Patients, setPatients, setIsModalOpen } = useContext(PatientContext) 
+const { patients, setPatients, setIsModalOpen } = useContext(PatientContext) 
 
 const formRef = useRef<HTMLFormElement>(null);
 
@@ -50,7 +50,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     //Clear form upon success submission, close modal and display success notification
     const newPatientResponse = await savePatient(formPatient)
     const newPatient = newPatientResponse.data.user;
-    const newList = [...Patients, newPatient]
+    const newList = [...patients, newPatient]
     setPatients(newList)
     
     setIsModalOpen(false)

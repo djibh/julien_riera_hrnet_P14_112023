@@ -1,9 +1,14 @@
-export type User = {
-    id: string;
-    name: string;
-    username: string;
-    email: string;
-};
+// export type User = {
+//     id: string;
+//     name: string;
+//     username: string;
+//     email: string;
+// };
+
+export type Department = {
+    id?: string;
+    title: string;
+}
 
 export type Patient = {
     id?: string,

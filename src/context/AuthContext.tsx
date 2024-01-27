@@ -19,7 +19,7 @@ const INITIAL_STATE = {
     checkAuthUser: async () => false as boolean,
 };
 
-type IContextType = {
+type ContextType = {
     user: User;
     isLoading: boolean;
     setUser: React.Dispatch<React.SetStateAction<User>>;
@@ -28,7 +28,7 @@ type IContextType = {
     checkAuthUser: () => Promise<boolean>;
 };
 
-const AuthContext = createContext<IContextType>(INITIAL_STATE);
+const AuthContext = createContext<ContextType>(INITIAL_STATE);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
     const navigate = useNavigate();
