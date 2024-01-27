@@ -9,7 +9,7 @@
 
 import { DataGrid, GridToolbarQuickFilter } from '@mui/x-data-grid';
 import { columns } from './PatientTableConfig'
-import Header from './header/Header'
+import SectionHeader from '../reusable/SectionHeader'
 import styled from 'styled-components';
 import { useContext, useEffect } from 'react';
 import PatientContext from '@/context/PatientContext';
@@ -41,7 +41,11 @@ export default function PatientTable() {
 
     return (
       <TableWrapperStyled className='wrapper'>
-        <Header patients={patients}/>
+        <SectionHeader 
+          title='Patients' 
+          subtitle={`Il y a actuellement ${patients.length} patients enregistrés.`}
+          showButton
+        />
         <DataGrid
           className='datatable'
           slots={{toolbar: QuickSearchToolbar}}

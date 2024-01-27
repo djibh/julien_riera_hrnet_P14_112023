@@ -7,20 +7,21 @@
 import NewPatientModal from '@/components/Patients/modal/NewPatientModal';
 import styled from 'styled-components';
 import theme from '@/design/theme';
-import { Patient } from '@/types';
 
 type HeaderProps = {
-  patients: Patient[]
+  title: string,
+  subtitle?: string,
+  showButton?: boolean
 }
 
-export default function PatientsHeader({patients}: HeaderProps) {
+export default function SectionHeader({title, subtitle, showButton }: HeaderProps) {
   return (
     <HeaderStyled>
       <div className='title'>
-        <h1>Patients</h1>
-        <h2>Il y a actuellement {patients.length} patients enregistrés</h2>
+        <h1>{ title }</h1>
+        <h2>{ subtitle }</h2>
       </div>
-      <NewPatientModal />
+      {showButton && <NewPatientModal />}
     </HeaderStyled>
   )
 }

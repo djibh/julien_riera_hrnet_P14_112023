@@ -5,6 +5,7 @@ import { getDepartments } from '@/api/DepartmentService'
 import { Department } from '@/types';
 import { useEffect, useState } from 'react';
 import { AxiosResponse } from 'axios';
+import SectionHeader from '@/components/reusable/SectionHeader';
 
 const initialDepartments: Department[] = []
 
@@ -22,7 +23,9 @@ export default function Departments() {
   }, [setDepartments])
 
   return (<>
-      <h2>Services</h2>
+      <SectionHeader
+        title='Services'
+      />
       <ServicesStyled>
         {
           departments.map(({ id, title }) => {
