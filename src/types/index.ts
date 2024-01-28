@@ -8,6 +8,8 @@
 export type Department = {
     id?: string;
     title: string;
+    manager: string;
+    phone: string;
 }
 
 export type Patient = {

@@ -28,9 +28,9 @@ export default function Departments() {
       />
       <section>
         {
-          departments.map(({ id, title }) => {
+          departments.map(({ id, title, manager, phone }) => {
             const randomPatientsInDep = Math.floor(Math.random() * 30);
-            return <DepartmentCard key={id} departmentTitle={title} patientsCount={randomPatientsInDep}/>
+            return <DepartmentCard key={ id } title={ title } manager={ manager } phone={ phone } patientsCount={ randomPatientsInDep }/>
           })
         }     
       </section>
@@ -42,6 +42,6 @@ const ServicesStyled = styled.div`
   section {
     display: grid;
     grid-template-columns: repeat(3, minmax(300px, 1fr));
-    gap: 10px;
+    gap: 15px;
   }
 `;
