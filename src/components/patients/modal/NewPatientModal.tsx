@@ -9,17 +9,20 @@ import styled from 'styled-components';
 import Modal from 'simpl-modal';
 import ModalButton from './ModalButton';
 import { useContext } from 'react';
-import Form from '../form/Form';
 import PatientContext from '@/context/PatientContext';
 
-export default function NewPatientModal() {
+type NewSectionModalProps = {
+  form: JSX.Element
+}
+
+export default function NewSectionItemModal({ form }: NewSectionModalProps) {
   const { isModalOpen, setIsModalOpen } = useContext(PatientContext)
   
   return (
     <NewPatientModalStyled>
         <ModalButton clickAction={() => setIsModalOpen(true)}/>
         <Modal isOpen={isModalOpen} setIsOpen={setIsModalOpen} theme='neutral' animated>
-          <Form />
+          { form }
         </Modal>
     </NewPatientModalStyled>
   )

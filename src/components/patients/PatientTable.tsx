@@ -17,6 +17,7 @@ import { getPatients } from '@/api/PatientService'
 import { AxiosResponse } from 'axios';
 import { Patient } from '@/types';
 import theme from '@/design/theme';
+import Form from '../patients/form/Form'
 
 // This function is used to show the built-in search field of the MUI datagrid.
 function QuickSearchToolbar() {
@@ -44,6 +45,7 @@ export default function PatientTable() {
         <SectionHeader 
           title='Patients' 
           subtitle={`Il y a actuellement ${patients.length} patients enregistrés.`}
+          form={ <Form/> }
           showButton
         />
         <DataGrid
@@ -64,8 +66,6 @@ export default function PatientTable() {
 }
 
 const TableWrapperStyled = styled.div`
-    max-width: 1200px;
-    margin: auto;
     padding-bottom: 3em;
 
     th, td {

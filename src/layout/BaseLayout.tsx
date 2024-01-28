@@ -30,5 +30,7 @@ const MainContainerStyled = styled.main`
     .content {
     flex: 1;
     padding-inline: 2em;
+    max-width: 1200px;
+    margin-inline: auto
   }
 `;

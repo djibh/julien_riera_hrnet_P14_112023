@@ -23,6 +23,8 @@ const App = () => {
             {/* <Route path="/patient/:id/*" element={<Patient />} /> */}
           </Route>
         </Routes>
+        
+        {/* toast notification for form submissions */}
         <ToastContainer position="top-right"
           autoClose={3000}
           hideProgressBar={false}

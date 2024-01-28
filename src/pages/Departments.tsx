@@ -22,26 +22,26 @@ export default function Departments() {
       .catch(console.error)    
   }, [setDepartments])
 
-  return (<>
+  return (<ServicesStyled>
       <SectionHeader
         title='Services'
       />
-      <ServicesStyled>
+      <section>
         {
           departments.map(({ id, title }) => {
             const randomPatientsInDep = Math.floor(Math.random() * 30);
             return <DepartmentCard key={id} departmentTitle={title} patientsCount={randomPatientsInDep}/>
           })
         }     
-      </ServicesStyled>
-    </>
+      </section>
+    </ServicesStyled>
     );
 }
 
-const ServicesStyled = styled.section`
-  display: grid;
-  margin: auto;
-  max-width: 1200px;
-  grid-template-columns: repeat(3, minmax(300px, 1fr));
-  gap: 10px;
+const ServicesStyled = styled.div`
+  section {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
+    gap: 10px;
+  }
 `;

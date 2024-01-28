@@ -4,24 +4,30 @@
  *  
  */
 
-import NewPatientModal from '@/components/Patients/modal/NewPatientModal';
+import NewSectionItemModal from '@/components/Patients/modal/NewPatientModal';
 import styled from 'styled-components';
 import theme from '@/design/theme';
 
 type HeaderProps = {
-  title: string,
-  subtitle?: string,
-  showButton?: boolean
-}
+  title: string;
+  subtitle?: string;
+  showButton?: true;
+  form: JSX.Element;
+} | {
+  title: string;
+  subtitle?: string;
+  showButton?: false;
+  form?: never;
+};
 
-export default function SectionHeader({title, subtitle, showButton }: HeaderProps) {
+export default function SectionHeader({ title, subtitle, form, showButton }: HeaderProps) {
   return (
     <HeaderStyled>
       <div className='title'>
         <h1>{ title }</h1>
         <h2>{ subtitle }</h2>
       </div>
-      {showButton && <NewPatientModal />}
+      { showButton && <NewSectionItemModal form={ form }/> }
     </HeaderStyled>
   )
 }

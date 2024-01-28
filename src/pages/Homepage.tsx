@@ -16,8 +16,7 @@ export default function Homepage() {
 
   return (
     <PatientContext.Provider value={ContextValue}>
-            <PatientsTable/>
-      {/* toast notification for Patient form submission */}
+        <PatientsTable/>
     </PatientContext.Provider>
   );
 }

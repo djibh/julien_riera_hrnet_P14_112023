@@ -17,14 +17,23 @@ export default function DepartmentCard({departmentTitle, patientsCount}: Departm
 }
 
 const DepartmentCardStyled = styled.article`
-    padding: 10px;
+    padding: 15px;
     border-radius: 5px;
     background-color: ${theme.colors.ghostWhite};
     color: black;
     box-shadow: 0px 1px 1px 1px #ccc;
 
 
-    h3, h4 {
-        margin-block: 10px;
+    h3 {
+        margin-block: 0;
+    }
+
+    h4 {
+      margin-block: 5px 15px;
+      font-weight: normal;
+    }
+
+    div {
+      color: ${theme.colors.cadetGray};
     }
 `;
