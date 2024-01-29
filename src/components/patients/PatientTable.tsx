@@ -7,18 +7,18 @@
  * 
  */
 
+import { AxiosResponse } from 'axios';
+import styled from 'styled-components';
 import { DataGrid, GridToolbarQuickFilter } from '@mui/x-data-grid';
-import FolderOffIcon from '@mui/icons-material/FolderOff';
 import { columns } from './PatientTableConfig'
 import SectionHeader from '../reusable/SectionHeader'
-import styled from 'styled-components';
 import { useContext, useEffect } from 'react';
 import PatientContext from '@/context/PatientContext';
 import { getPatients } from '@/api/PatientService'
-import { AxiosResponse } from 'axios';
 import { Patient } from '@/types';
 import theme from '@/design/theme';
 import Form from '../patients/form/Form'
+import Error from '@/components/reusable/Error'
 
 // This function is used to show the built-in search field of the MUI datagrid.
 function QuickSearchToolbar() {
@@ -49,10 +49,7 @@ export default function PatientTable() {
 
     if (patients.length === 0) {
       return <TableWrapperStyled className='no-result__wrapper'>
-              <div>
-                <FolderOffIcon className='no-result__icon' />
-                <div>Aucune donnée disponible</div>
-              </div>
+                <Error />
             </TableWrapperStyled>
     } 
     
@@ -111,15 +108,5 @@ const TableWrapperStyled = styled.div`
       display: grid;
       place-items: center;
       height: 100%;
-
-      div {
-        text-align: center;
-        color: ${theme.colors.verdigris};
-        font-size: 1.6rem;
-      }
-      
-      .no-result__icon {
-        font-size: 100px;
-      }
     }
 `;
