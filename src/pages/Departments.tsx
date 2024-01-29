@@ -28,9 +28,8 @@ export default function Departments() {
       />
       <section>
         {
-          departments.map(({ id, title, manager, phone }) => {
-            const randomPatientsInDep = Math.floor(Math.random() * 30);
-            return <DepartmentCard key={ id } title={ title } manager={ manager } phone={ phone } patientsCount={ randomPatientsInDep }/>
+          departments.map(({ id, title, manager, phone, numberOfPatients }) => {
+            return <DepartmentCard key={ id } title={ title } manager={ manager } phone={ phone } patientsCount={ numberOfPatients }/>
           })
         }     
       </section>

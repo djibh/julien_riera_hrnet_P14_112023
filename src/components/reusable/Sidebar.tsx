@@ -32,8 +32,7 @@ const SidebarStyled = styled.nav`
     min-width: 200px;
     max-width: 400px;
     min-height: 90vh;
-    background-color: ${theme.colors.yinmnBlue};
-    box-shadow: 0px 0px 15px 2px rgba(20,20,20, 0.2) inset;
+    background-color: ${theme.colors.primary};
 
     h2 {
       margin-bottom: 1.5em;
@@ -52,7 +51,7 @@ const SidebarStyled = styled.nav`
         align-items: center;
         gap: 10px;
         padding: 10px 15px;
-        font-size: 1rem;
+        font-size: 1.15rem;
         border-top-left-radius: 30px;
         border-bottom-left-radius: 30px;
         color: white;
@@ -60,7 +59,7 @@ const SidebarStyled = styled.nav`
         
         &:hover, &.active {
           background: rgba(255,255,255, 0.2);
-          box-shadow: 0px 1px 0px 0px ${theme.colors.fandango};
+          box-shadow: 0px 1px 0px 0px ${theme.colors.grey700};
         }
       }
     }

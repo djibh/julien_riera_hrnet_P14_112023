@@ -44,6 +44,6 @@ const ButtonStyled = styled.button`
     background-color: ${theme.colors.glaucous};
   }
   &:active {
-    box-shadow: 0px 0px 2px 1px ${theme.colors.yinmnBlue} inset;
+    box-shadow: 0px 0px 2px 1px ${theme.colors.grey500} inset;
   }
 `;

@@ -16,7 +16,7 @@ export default function DepartmentCard({title, manager, phone, patientsCount}: D
           <h4>{ phone }</h4>
         </div>
         <h4 className="manager">Chef de service : { manager }</h4>
-        <h5 className="patients-count">Patients admis : { patientsCount } </h5>
+        <h5>Patients admis : { patientsCount } </h5>
     </DepartmentCardStyled>
   )
 }
@@ -28,20 +28,18 @@ const DepartmentCardStyled = styled.article`
     color: black;
     box-shadow: 0px 1px 1px 1px #ccc;
 
+    > * {
+      font-size: 1rem;
+      line-height: 1.8;
+     }
+
     h3 {
         margin-block: 0;
-        font-size: 1.05rem;
+        font-size: 1.2rem;
     }
 
-    h4 {
+    h4, h5 {
       margin: 0;
-      font-weight: normal;
-      font-size: 0.85rem;
-    }
-
-    h5 {
-      margin: 0px;
-      font-size: 0.9rem;
       font-weight: normal;
     }
 
@@ -49,12 +47,11 @@ const DepartmentCardStyled = styled.article`
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid ${theme.colors.keppel};
+      border-bottom: 1px solid ${theme.colors.grey500};
+      color: ${theme.colors.black};
     }
 
     .manager {
       margin-block: 15px 0px;
-      font-weight: normal;
-      font-size: 0.9rem;
     }
 `;

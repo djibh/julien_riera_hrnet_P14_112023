@@ -22,7 +22,7 @@ const HeaderStyled = styled.header`
     height: 10vh;
     place-items: center;
     background: white;
-    box-shadow: 0px 0px 3px 0px ${theme.colors.primary};
+    box-shadow: 0px 0px 3px 0px ${theme.colors.grey500};
 
     nav {
         display: flex;

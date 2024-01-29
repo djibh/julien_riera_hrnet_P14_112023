@@ -6,10 +6,11 @@
 // };
 
 export type Department = {
-    id?: string;
-    title: string;
-    manager: string;
-    phone: string;
+    id?: string,
+    title: string,
+    manager: string,
+    phone: string,
+    numberOfPatients: number
 }
 
 export type Patient = {
@@ -21,7 +22,7 @@ export type Patient = {
     birthDate: string,
     address: string,
     city: string,
-    postalCode: number,
+    postalCode: number
 }
 
 export type Patients = Patient[]

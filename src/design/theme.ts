@@ -5,7 +5,7 @@
  */
 const theme = {
     colors: {
-        primary: "#0F659B",
+        primary: "#345394ff",
         submitButton: "#3b82f6",
         submitButtonHover: "#2563eb",
         lapisLazuli: "#0e659bff",
@@ -20,7 +20,6 @@ const theme = {
         verdigris: "#5FB0B7",
         taupeGrey: "#A39594",
         rebeccaPurple: "#58408C",
-        yinmnBlue: "#345394ff",
         fandango: "#a01a7dff",
         magentaHaze: "#a25889ff",
         mountbattenPink: "#a3778fff",
