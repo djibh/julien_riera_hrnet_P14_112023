@@ -31,6 +31,6 @@ const MainContainerStyled = styled.main`
     flex: 1;
     padding-inline: 2em;
     max-width: 1400px;
-    margin-inline: auto
+    margin-inline: auto;
   }
 `;

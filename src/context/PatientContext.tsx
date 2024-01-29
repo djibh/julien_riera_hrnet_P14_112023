@@ -8,13 +8,17 @@ type ContextType = {
     setPatients: React.Dispatch<React.SetStateAction<Patient[]>>,
     isModalOpen: boolean,
     setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>,
+    isLoading: boolean,
+    setIsLoading: React.Dispatch<React.SetStateAction<boolean>>,
 }
 
 const InitialState = {
     patients: [],
     setPatients: () => [],
     isModalOpen: false,
-    setIsModalOpen: () => { },
+    setIsModalOpen: () => {},
+    isLoading: false,
+    setIsLoading: () => {}
 }
 
 const PatientContext = createContext<ContextType>(InitialState)

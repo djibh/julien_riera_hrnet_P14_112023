@@ -8,6 +8,7 @@
  */
 
 import { DataGrid, GridToolbarQuickFilter } from '@mui/x-data-grid';
+import FolderOffIcon from '@mui/icons-material/FolderOff';
 import { columns } from './PatientTableConfig'
 import SectionHeader from '../reusable/SectionHeader'
 import styled from 'styled-components';
@@ -29,24 +30,39 @@ function QuickSearchToolbar() {
 }
 
 export default function PatientTable() {
-  const { patients, setPatients } = useContext(PatientContext)
+  const { patients, setPatients, isLoading, setIsLoading } = useContext(PatientContext)
 
   useEffect(() => {
+    setIsLoading(true)
     const fetchPatients = async () => {
       const response: AxiosResponse<Patient[]> = await getPatients()
       setPatients(response.data)
     }
     fetchPatients()
-      .catch(console.error)    
-  }, [setPatients])
+    .catch(console.error)    
+    setIsLoading(false)
+  }, [setPatients, setIsLoading])
 
+    if (isLoading) {
+      return <div> LOADING </div>
+    }
+
+    if (patients.length === 0) {
+      return <TableWrapperStyled className='no-result__wrapper'>
+              <div>
+                <FolderOffIcon className='no-result__icon' />
+                <div>Aucune donnée disponible</div>
+              </div>
+            </TableWrapperStyled>
+    } 
+    
     return (
       <TableWrapperStyled className='wrapper'>
         <SectionHeader 
-          title='Patients' 
-          subtitle={`Il y a actuellement ${patients.length} patients enregistrés.`}
-          form={ <Form/> }
-          showButton
+        title='Patients' 
+        subtitle={`Il y a actuellement ${patients.length} patients enregistrés.`}
+        form={ <Form/> }
+        showButton
         />
         <DataGrid
           className='datatable'
@@ -56,7 +72,7 @@ export default function PatientTable() {
           columns={columns}
           initialState={{
             pagination: {
-              paginationModel: { page: 0, pageSize: 5 },
+              paginationModel: { page: 0, pageSize: 10 },
             },
           }}
           pageSizeOptions={[5, 10, 20]}
@@ -86,9 +102,24 @@ const TableWrapperStyled = styled.div`
       border: none;
       width: 100%;
       padding: 0.5em 1.5em;
-      /* background-color: white; */
       background-color: ${theme.colors.ghostWhite};
       border-radius: 10px;
       box-shadow: 0px 1px 1px 1px #ccc;
+    }
+
+    &.no-result__wrapper {
+      display: grid;
+      place-items: center;
+      height: 100%;
+
+      div {
+        text-align: center;
+        color: ${theme.colors.verdigris};
+        font-size: 1.6rem;
+      }
+      
+      .no-result__icon {
+        font-size: 100px;
+      }
     }
 `;
