@@ -7,18 +7,15 @@
  * 
  */
 
-import { AxiosResponse } from 'axios';
 import styled from 'styled-components';
 import { DataGrid, GridToolbarQuickFilter } from '@mui/x-data-grid';
 import { columns } from './PatientTableConfig'
-import SectionHeader from '../reusable/SectionHeader'
-import { useContext, useEffect } from 'react';
+import SectionHeader from '../ui/SectionHeader'
+import { useContext } from 'react';
 import PatientContext from '@/context/PatientContext';
-import { getPatients } from '@/api/PatientService'
-import { Patient } from '@/types';
 import theme from '@/design/theme';
 import Form from '../patients/form/Form'
-import Error from '@/components/reusable/Error'
+import Error from '@/components/ui/Error'
 
 // This function is used to show the built-in search field of the MUI datagrid.
 function QuickSearchToolbar() {
@@ -30,51 +27,36 @@ function QuickSearchToolbar() {
 }
 
 export default function PatientTable() {
-  const { patients, setPatients, isLoading, setIsLoading } = useContext(PatientContext)
+  const { patients } = useContext(PatientContext)
 
-  useEffect(() => {
-    setIsLoading(true)
-    const fetchPatients = async () => {
-      const response: AxiosResponse<Patient[]> = await getPatients()
-      setPatients(response.data)
-    }
-    fetchPatients()
-    .catch(console.error)    
-    setIsLoading(false)
-  }, [setPatients, setIsLoading])
-
-    if (isLoading) {
-      return <div> LOADING </div>
-    }
-
-    if (patients.length === 0) {
-      return <TableWrapperStyled className='no-result__wrapper'>
-                <Error />
-            </TableWrapperStyled>
-    } 
-    
-    return (
-      <TableWrapperStyled className='wrapper'>
-        <SectionHeader 
-        title='Patients' 
-        subtitle={`Il y a actuellement ${patients.length} patients enregistrés.`}
-        form={ <Form/> }
-        showButton
-        />
-        <DataGrid
-          className='datatable'
-          slots={{toolbar: QuickSearchToolbar}}
-          key={Math.random()*100*4}
-          rows={patients}
-          columns={columns}
-          initialState={{
-            pagination: {
-              paginationModel: { page: 0, pageSize: 10 },
-            },
-          }}
-          pageSizeOptions={[5, 10, 20]}
-        />
-      </TableWrapperStyled>
+  if (patients.length === 0) {
+    return <TableWrapperStyled className='no-result__wrapper'>
+              <Error />
+          </TableWrapperStyled>
+  } 
+  
+  return (
+    <TableWrapperStyled className='wrapper'>
+      <SectionHeader 
+      title='Patients' 
+      subtitle={`Il y a actuellement ${patients.length} patients enregistrés.`}
+      form={ <Form/> }
+      showButton
+      />
+      <DataGrid
+        className='datatable'
+        slots={{toolbar: QuickSearchToolbar}}
+        key={Math.random()*100*4}
+        rows={patients}
+        columns={columns}
+        initialState={{
+          pagination: {
+            paginationModel: { page: 0, pageSize: 10 },
+          },
+        }}
+        pageSizeOptions={[5, 10, 20]}
+      />
+    </TableWrapperStyled>
   )
 }
 
@@ -83,6 +65,26 @@ const TableWrapperStyled = styled.div`
 
     th, td {
       font-family: 'IBM Plex Sans', sans-serif;
+    }
+
+    
+
+    [title~="Rhumatologie"], [title~="adultes"], [title~="Toxicologie"], [title~="Pneumologie"] {
+      padding: 3px 10px;
+      border-radius: 20px;
+      color: ${theme.colors.ghostWhite};
+    }
+
+    [title~="adultes"] {
+      background-color: ${theme.colors.magentaHaze};
+    }
+
+    [title~="Toxicologie"] {
+      background-color: ${theme.colors.glaucous};
+    }
+
+    [title~="Pneumologie"] {
+      background-color: ${theme.colors.keppel};
     }
 
     .search-field {
@@ -101,7 +103,7 @@ const TableWrapperStyled = styled.div`
       padding: 0.5em 1.5em;
       background-color: ${theme.colors.ghostWhite};
       border-radius: 10px;
-      box-shadow: 0px 1px 1px 1px #ccc;
+      box-shadow: ${theme.shadows.low};;
     }
 
     &.no-result__wrapper {

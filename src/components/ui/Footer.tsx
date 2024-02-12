@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import theme from "@/design/theme";
 
-export default function Footer() {
+export function Footer() {
   return <FooterStyled>Copyright 2024 Wealth Health</FooterStyled>;
 }
 

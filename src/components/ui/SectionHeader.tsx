@@ -20,7 +20,7 @@ type HeaderProps = {
   form?: never;
 };
 
-export default function SectionHeader({ title, subtitle, form, showButton }: HeaderProps) {
+export function SectionHeader({ title, subtitle, form, showButton }: HeaderProps) {
   return (
     <HeaderStyled>
       <div className='title'>

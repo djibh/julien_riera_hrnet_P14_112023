@@ -9,7 +9,7 @@ import styled from "styled-components";
 import theme from "@/design/theme";
 import { NavLink } from 'react-router-dom';
 
-export default function Sidebar() {
+export function Sidebar() {
   return (
     <SidebarStyled>
         <h2>KLEPIOS</h2>
@@ -28,11 +28,12 @@ export default function Sidebar() {
 }
 
 const SidebarStyled = styled.nav`
-    width: 15%;
+    width: 200px;
     min-width: 200px;
     max-width: 400px;
     min-height: 90vh;
     background-color: ${theme.colors.primary};
+    box-shadow: ${theme.shadows.inset};
 
     h2 {
       margin-bottom: 1.5em;
@@ -59,7 +60,7 @@ const SidebarStyled = styled.nav`
         
         &:hover, &.active {
           background: rgba(255,255,255, 0.2);
-          box-shadow: 0px 1px 0px 0px ${theme.colors.grey700};
+          /* box-shadow: 0px 1px 0px 0px ${theme.colors.grey700}; */
         }
       }
     }

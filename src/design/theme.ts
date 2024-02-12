@@ -31,9 +31,9 @@ const theme = {
         grey700: "#374151",
     },
     shadows: {
-        low: "0px 1px 1px #ccc",
-        medium: "",
-        high: "0px 2px 3px 3px #252525",
+        low: "0px 1px 1px 1px #ccc;",
+        medium: "0px 2px 10px 1px #454545dd",
+        high: "0px 2px 20px 2px #454545cc",
         inset: "0px 0px 2px 0px #345394 inset"
     },
     spacing: {

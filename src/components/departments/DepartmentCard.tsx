@@ -26,7 +26,7 @@ const DepartmentCardStyled = styled.article`
     border-radius: 5px;
     background-color: ${theme.colors.ghostWhite};
     color: black;
-    box-shadow: 0px 1px 1px 1px #ccc;
+    box-shadow: ${theme.shadows.low};
 
     > * {
       font-size: 1rem;

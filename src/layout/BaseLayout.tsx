@@ -1,8 +1,5 @@
 import { Outlet } from "react-router-dom";
-
-import Header from "@/components/reusable/Header";
-import Footer from "@/components/reusable/Footer";
-import Sidebar from "@/components/reusable/Sidebar";
+import { Header, Footer, Sidebar } from "@/components/ui"
 import styled from "styled-components";
 
 export default function BaseLayout() {

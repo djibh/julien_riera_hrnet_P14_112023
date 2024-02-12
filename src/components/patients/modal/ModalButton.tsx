@@ -33,7 +33,7 @@ const ButtonStyled = styled.button`
   font-weight: 600;
   gap: 10px;
   background-color: ${theme.colors.lilac};
-  box-shadow: 0px 1px 1px 1px #ccc;
+  box-shadow: ${theme.shadows.low};
   transition: 180ms;
   
   :first-child {

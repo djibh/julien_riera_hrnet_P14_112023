@@ -42,13 +42,14 @@ export const cleanFormOnSuccess = (
 }
 
 export const departments = [
-    { value: 'Rhumatologie', label: 'Rhumatologie' },
-    { value: 'Gériatrie', label: 'Gériatrie' },
-    { value: 'Ophtalmologie', label: 'Ophtalmologie' },
-    { value: 'Toxicologie', label: 'Toxicologie' },
-    { value: 'Pédiatrie', label: 'Pédiatrie' },
-    { value: 'Psychiatrie', label: 'Psychiatrie' },
-    { value: 'Bloc opératoire', label: 'Bloc opératoire' },
-    { value: 'Urgences adulte', label: 'Urgences adulte' },
-    { value: 'Pneumologie', label: 'Pneumologie' },
+    { value: 'Rhumatologie', label: 'Rhumatologie', departmentId: 1 },
+    { value: 'Psychiatrie', label: 'Psychiatrie', departmentId: 2 },
+    { value: 'Ophtalmologie', label: 'Ophtalmologie', departmentId: 3 },
+    { value: 'Toxicologie', label: 'Toxicologie', departmentId: 4 },
+    { value: 'Pédiatrie', label: 'Pédiatrie', departmentId: 5 },
+    { value: 'Neurologie', label: 'Pédiatrie', departmentId: 6 },
+    { value: 'Chirurgie', label: 'Chirurgie', departmentId: 7 },
+    { value: 'Urgences adulte', label: 'Urgences adulte', departmentId: 8 },
+    { value: 'Urgences enfants', label: 'Urgences enfants', departmentId: 9 },
+    { value: 'Pneumologie', label: 'Pneumologie', departmentId: 10 },
 ];

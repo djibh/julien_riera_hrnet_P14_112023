@@ -1,7 +1,10 @@
 import PatientsTable from '@/components/patients/PatientTable';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PatientContext from '@/context/PatientContext';
+import AuthContext from '@/context/AuthContext';
 import { Patient } from '@/types';
+import { AxiosResponse } from 'axios';
+import { getPatients } from '@/core/api/PatientService';
 
 const INITIAL_PATIENTS: Patient[] = []
 
@@ -10,7 +13,18 @@ export default function Homepage() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
-  const ContextValue = {
+  useEffect(() => {
+    setIsLoading(true)
+    const fetchPatients = async () => {
+      const response: AxiosResponse<Patient[]> = await getPatients()
+      setPatients(response.data)
+    }
+    fetchPatients()
+    .catch(console.error)    
+    setIsLoading(false)
+  }, [setPatients, setIsLoading])
+
+  const patientContextValue = {
     patients,
     setPatients,
     isModalOpen,
@@ -19,9 +33,15 @@ export default function Homepage() {
     setIsLoading
   }
 
-  return (
-    <PatientContext.Provider value={ContextValue}>
-        <PatientsTable/>
-    </PatientContext.Provider>
-  );
+  if (isLoading) {
+    return <div> LOADING </div>
+  } else {
+    return (
+      <AuthContext>
+      <PatientContext.Provider value={patientContextValue}>
+          <PatientsTable/>
+      </PatientContext.Provider>
+      </AuthContext>
+    );
+  }
 }

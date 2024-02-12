@@ -11,10 +11,10 @@ import styled from "styled-components";
 import FormHeader from './FormHeader';
 import FormBody from './FormBody';
 import FormFooter from './FormFooter';
-import { successNotification, errorNotification } from '@/components/reusable/Toasts'
+import { successNotification, errorNotification } from '@/components/ui/Toasts'
 import PatientContext from "@/context/PatientContext";
 import { cleanFormOnSuccess, createFormPatient } from './FormConfig'
-import { savePatient } from "../../../api/PatientService"
+import { savePatient } from "@/core/api/PatientService"
 import theme from "@/design/theme";
 
 export default function Form() {

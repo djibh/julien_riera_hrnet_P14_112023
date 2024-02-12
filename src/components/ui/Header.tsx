@@ -6,7 +6,7 @@
 import styled from "styled-components";
 import theme from "@/design/theme";
 
-export default function Header() {
+export function Header() {
   return (
     <HeaderStyled>
           <nav>

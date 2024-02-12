@@ -1,9 +1,32 @@
-import { FormEvent } from "react";
+import { FormEvent, useContext } from "react";
 import styled from "styled-components";
+import { logUserIn } from "../core/api/AuthService"
+import AuthContext from "@/context/AuthContext"
+import { AxiosResponse } from "axios";
+import { User } from "@/types";
+import theme from "@/design/theme";
 
 export default function Login() {
+  // const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext)
+
+
   function handleSubmit(event: FormEvent<HTMLFormElement>): void {
     event.preventDefault();
+
+    const user: User = { username: "user", password: "password"} 
+    const response: AxiosResponse<User> = logUserIn(user)
+    console.log(response.data);
+    
+
+    // useEffect(() => {
+    //   setIsLoading(true)
+    //   const fetchDepartments = async () => {
+    //     setDepartments(response.data)
+    //   }
+    //   fetchDepartments()
+    //   .catch(console.error)  
+    //   setIsLoading(false)
+    // }, [setDepartments])
   }
 
   return (
@@ -46,7 +69,7 @@ const LoginStyled = styled.div`
     padding: 2em;
     border-radius: 5px;
     gap: 2em;
-    box-shadow: 0px 2px 3px 3px #252525;
+    box-shadow: 0px 1px 3px 1px ${theme.colors.cadetGray};
   }
 
   .flex {
@@ -57,7 +80,7 @@ const LoginStyled = styled.div`
 
   .logo {
     padding-block: 2em;
-    max-width: 150px;
+    max-width: 130px;
   }
 
   .username, .password {
@@ -76,26 +99,27 @@ const LoginStyled = styled.div`
   }
 
   input {
+    max-width: 180px;
     padding: 7px 10px;
     border-radius: 5px;
     background-color: #dedede;
     border: 1px solid #ccc;
     color: #444;
-  }
+    font-size: 1.2rem;
 
-  label, button {
-    font-size: 1.4rem;
-  }
-
-  input {
-    font-size: 1.35rem;
+    &:focus {
+      border: 1px solid ${theme.colors.glaucous};
+      outline: transparent;
+    }
   }
 
   button {
     text-align: center;
+    font-size: 1.3rem;
   }
 
   label {
+    font-size: 1.2rem;
     color: #444;
   }
 `;

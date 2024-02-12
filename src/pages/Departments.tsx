@@ -1,12 +1,10 @@
-import styled from 'styled-components';
-import DepartmentCard from '../components/departments/DepartmentCard'
-import { getDepartments } from '@/api/DepartmentService'
-
-import { Department } from '@/types';
 import { useEffect, useState } from 'react';
 import { AxiosResponse } from 'axios';
-import SectionHeader from '@/components/reusable/SectionHeader';
-import Error from '@/components/reusable/Error';
+import styled from 'styled-components';
+import DepartmentCard from '../components/departments/DepartmentCard'
+import { getDepartments } from '@/core/api/DepartmentService'
+import { Department } from '@/types';
+import { Error, SectionHeader } from "@/components/ui"
 
 const initialDepartments: Department[] = []
 

@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { Patient } from '@/types';
+import { Patient } from '../types';
 
 const initialPatients: Patient[] = [
   {

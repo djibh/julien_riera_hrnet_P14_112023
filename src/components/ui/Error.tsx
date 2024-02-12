@@ -1,13 +1,13 @@
-/* Navbar.tsx - Component
+/* Error.tsx - Component
  *
- * This component is currently used to show the company logo. Could be used to add navigation items too.
+ * This component is currently used to show the 'No data' when the API cannot be reached. Could be used to add navigation items too.
  *  
  */
 import styled from "styled-components";
 import FolderOffIcon from '@mui/icons-material/FolderOff';
 import theme from "../../design/theme";
 
-export default function Error() {
+export function Error() {
   return (
         <ErrorStyled>
           <FolderOffIcon className='no-result__icon' />

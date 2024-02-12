@@ -5,9 +5,8 @@ import { User } from "../types"
 
 const INITIAL_USER: User = {
     id: "",
-    name: "",
     username: "",
-    email: "",
+    password: "",
 };
 
 const INITIAL_STATE = {
@@ -30,7 +29,7 @@ type ContextType = {
 
 const AuthContext = createContext<ContextType>(INITIAL_STATE);
 
-export function AuthProvider({ children }: { children: React.ReactNode }) {
+export default function AuthProvider({ children }: { children: React.ReactNode }) {
     const navigate = useNavigate();
     const [user, setUser] = useState<User>(INITIAL_USER);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -44,9 +43,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             if (currentAccount) {
                 setUser({
                     id: currentAccount.id,
-                    name: currentAccount.name,
                     username: currentAccount.username,
-                    email: currentAccount.email,
+                    password: currentAccount.password,
                 });
                 setIsAuthenticated(true);
 

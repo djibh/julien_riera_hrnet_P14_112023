@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { Patient } from '@/types'
+import { Patient } from '../../types'
 
 const API_URL = 'http://localhost:5000/api'
 
