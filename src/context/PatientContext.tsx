@@ -1,11 +1,10 @@
 import { createContext } from "react";
 // import axios from 'axios';
-import { Patient } from "@/types"
-
+import { Patients } from "@/types"
 
 type ContextType = {
-    patients: Patient[],
-    setPatients: React.Dispatch<React.SetStateAction<Patient[]>>,
+    patients: Patients,
+    setPatients: React.Dispatch<React.SetStateAction<Patients>>,
     isModalOpen: boolean,
     setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>,
     isLoading: boolean,
@@ -26,7 +25,7 @@ const PatientContext = createContext<ContextType>(InitialState)
 export default PatientContext
 
 // export const PatientProvider = ({ children }: { children: React.ReactNode }) => {
-//     const [Patients, setPatients] = useState<Patient[]>([]);
+//     const [Patients, setPatients] = useState<Patients>([]);
 //     const [isModalOpen, setIsModalOpen] = useState(false)
 
 //     // Fonction pour ajouter un employé

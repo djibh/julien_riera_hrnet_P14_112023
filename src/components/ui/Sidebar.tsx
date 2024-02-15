@@ -5,6 +5,7 @@
  */
 import PeopleIcon from '@mui/icons-material/People';
 import HubIcon from '@mui/icons-material/Hub';
+import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import styled from "styled-components";
 import theme from "@/design/theme";
 import { NavLink } from 'react-router-dom';
@@ -21,6 +22,10 @@ export function Sidebar() {
           <NavLink to="/services" className='sidebar-items__btn'>
               <HubIcon />
               <div>Services</div>
+          </NavLink>
+          <NavLink to="/employees" className='sidebar-items__btn'>
+              <LocalHospitalIcon />
+              <div>Personnel</div>
           </NavLink>
         </div>
     </SidebarStyled>
@@ -60,7 +65,6 @@ const SidebarStyled = styled.nav`
         
         &:hover, &.active {
           background: rgba(255,255,255, 0.2);
-          /* box-shadow: 0px 1px 0px 0px ${theme.colors.grey700}; */
         }
       }
     }

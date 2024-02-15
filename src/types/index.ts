@@ -24,4 +24,14 @@ export type Patient = {
     postalCode: number
 }
 
+export type Employee = {
+    id?: string,
+    firstName: string,
+    lastName: string,
+    position: string,
+    email: string,
+    avatar: string
+}
+
 export type Patients = Patient[]
+export type Employees = Employee[]

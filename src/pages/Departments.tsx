@@ -41,7 +41,7 @@ export default function Departments() {
       <section>
         {
           departments.map(({ id, title, manager, phone, numberOfPatients }) => {
-            return <DepartmentCard key={ id } title={ title } manager={ manager } phone={ phone } patientsCount={ numberOfPatients }/>
+            return <DepartmentCard key={ id } title={ title } manager={ manager } phone={ phone } numberOfPatients={ numberOfPatients }/>
           })
         }     
       </section>

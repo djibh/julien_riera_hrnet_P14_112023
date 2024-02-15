@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
-import { Patient } from '../types';
+import { Patients } from '../types';
 
-const initialPatients: Patient[] = [
+const initialPatients: Patients = [
   {
     id: uuidv4(),
     firstName: 'Chuck',

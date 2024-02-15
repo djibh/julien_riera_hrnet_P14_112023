@@ -10,12 +10,12 @@
 import styled from 'styled-components';
 import { DataGrid, GridToolbarQuickFilter } from '@mui/x-data-grid';
 import { columns } from './PatientTableConfig'
-import SectionHeader from '../ui/SectionHeader'
+import { SectionHeader } from '../ui/SectionHeader'
 import { useContext } from 'react';
 import PatientContext from '@/context/PatientContext';
 import theme from '@/design/theme';
 import Form from '../patients/form/Form'
-import Error from '@/components/ui/Error'
+import { Error } from '@/components/ui/Error'
 
 // This function is used to show the built-in search field of the MUI datagrid.
 function QuickSearchToolbar() {
@@ -73,6 +73,10 @@ const TableWrapperStyled = styled.div`
       padding: 3px 10px;
       border-radius: 20px;
       color: ${theme.colors.ghostWhite};
+    }
+
+    [title~="Rhumatologie"] {
+      background-color: ${theme.colors.grey500};
     }
 
     [title~="adultes"] {

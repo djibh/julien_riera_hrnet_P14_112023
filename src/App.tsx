@@ -4,6 +4,7 @@ import AuthLayout from "./layout/AuthLayout"
 import BaseLayout from "./layout/BaseLayout"
 import Homepage from "./pages/Homepage";
 import Departments from "./pages/Departments";
+import Employees from "./pages/Employees";
 import Login from "./pages/Login";
 import { ToastContainer } from "react-toastify";
 
@@ -20,6 +21,7 @@ const App = () => {
           <Route element={<BaseLayout />}>
             <Route index element={<Homepage />} />
             <Route path="/services" element={<Departments />} />
+            <Route path="/employees" element={<Employees />} />
             {/* <Route path="/patient/:id/*" element={<Patient />} /> */}
           </Route>
         </Routes>

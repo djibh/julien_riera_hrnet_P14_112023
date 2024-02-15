@@ -1,14 +1,8 @@
 import theme from "@/design/theme";
+import { Department } from "@/types";
 import styled from "styled-components";
 
-type DepartmentCardProps = {
-    title: string,
-    manager: string,
-    phone: string,
-    patientsCount: number
-}
-
-export default function DepartmentCard({title, manager, phone, patientsCount}: DepartmentCardProps) {
+export default function DepartmentCard({title, manager, phone, numberOfPatients}: Department) {
   return (
     <DepartmentCardStyled>
         <div className="card-title">
@@ -16,7 +10,7 @@ export default function DepartmentCard({title, manager, phone, patientsCount}: D
           <h4>{ phone }</h4>
         </div>
         <h4 className="manager">Chef de service : { manager }</h4>
-        <h5>Patients admis : { patientsCount } </h5>
+        <h5>Patients admis : { numberOfPatients } </h5>
     </DepartmentCardStyled>
   )
 }

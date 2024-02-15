@@ -37,11 +37,12 @@ const theme = {
         inset: "0px 0px 2px 0px #345394 inset"
     },
     spacing: {
-        xs: "",
-        sm: "",
-        md: "",
-        lg: "",
-        xl: ""
+        xs: "5px",
+        sm: "10px",
+        md: "15px",
+        lg: "20px",
+        xl: "25px",
+        xxl: "30px"
     }
 }
 

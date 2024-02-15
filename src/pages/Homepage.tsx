@@ -2,11 +2,11 @@ import PatientsTable from '@/components/patients/PatientTable';
 import { useEffect, useState } from 'react';
 import PatientContext from '@/context/PatientContext';
 import AuthContext from '@/context/AuthContext';
-import { Patient } from '@/types';
+import { Patients } from '@/types';
 import { AxiosResponse } from 'axios';
 import { getPatients } from '@/core/api/PatientService';
 
-const INITIAL_PATIENTS: Patient[] = []
+const INITIAL_PATIENTS: Patients = []
 
 export default function Homepage() {
   const [patients, setPatients] = useState(INITIAL_PATIENTS)
@@ -16,7 +16,7 @@ export default function Homepage() {
   useEffect(() => {
     setIsLoading(true)
     const fetchPatients = async () => {
-      const response: AxiosResponse<Patient[]> = await getPatients()
+      const response: AxiosResponse<Patients> = await getPatients()
       setPatients(response.data)
     }
     fetchPatients()
